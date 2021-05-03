@@ -1,0 +1,35 @@
+.home_section {
+  height: 300px;
+  width: 300px;
+  margin: 5%;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  margin: 0;
+}
+
+.card .star_icon {
+  color: red;
+  vertical-align: -0.1cm;
+  margin-right: 1%;
+}
+
+.card img {
+  max-width: 300px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 2px black;
+          box-shadow: 0 0 2px black;
+}
+
+.card p {
+  line-height: 25px;
+  text-align: left;
+  padding-left: 2%;
+}
+
+.copyright_section {
+  border-top: 1px solid lightgray;
+}
+/*# sourceMappingURL=Card.css.map */
