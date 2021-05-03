@@ -17,6 +17,7 @@ header {
   width: 100%;
   background: white;
   border-top: 0.5px solid lightgray;
+  z-index: 2;
 }
 
 .options-nav p {
@@ -38,12 +39,14 @@ header {
 }
 
 .options-nav p:first-child .option-icon {
-  color: #ff3c00;
+  fill: #ff3c00;
+  stroke: none;
 }
 
 .options-nav .option-icon {
   height: 30px;
   width: 30px;
-  color: gray;
+  stroke: rgba(0, 0, 0, 0.596);
+  fill: white;
 }
 /*# sourceMappingURL=Header.css.map */
