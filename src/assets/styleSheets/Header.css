@@ -1,0 +1,49 @@
+header {
+  height: 100vh;
+}
+
+.options-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 10.3vh;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  background: white;
+  border-top: 0.5px solid lightgray;
+}
+
+.options-nav p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.options-nav p:first-child .option-icon {
+  color: #ff3c00;
+}
+
+.options-nav .option-icon {
+  height: 30px;
+  width: 30px;
+  color: gray;
+}
+/*# sourceMappingURL=Header.css.map */

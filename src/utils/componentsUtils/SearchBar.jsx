@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import { Calendar } from 'react-date-range';
-import '../styleSheets/SearchBar.scss';
+import '../../assets/styleSheets/SearchBar.scss';
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
-import Location from '../assets/location.svg';
+import Location from '../../assets/images/location.svg';
 
 function SearchBar(){
 
