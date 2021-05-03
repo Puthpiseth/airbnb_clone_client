@@ -5,9 +5,19 @@
 }
 
 .card {
+    position: relative;
     width: 300px;
     height: 300px;
     margin: 0;
+
+    .fav-icon {
+        position: absolute;
+        top: 2%;
+        left: 90%;
+        stroke: white;
+        color: gray;
+
+    }
 
     .star_icon {
         color: red;
