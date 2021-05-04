@@ -12,23 +12,15 @@ function Header(){
             <SearchBar/>
             <Banner/>
             <div className="options-nav">
-                
-                <p>
                     <a href="/">
                         <SearchIcon className="option-icon"/>
                     </a>
-                        Explore
-                    
-                </p>
-                
-                <p>
-                    <FavoriteIcon className="option-icon"/>
-                    Favorite
-                </p>
-                <p>
-                    <AccountCircleIcon className="option-icon"/>
-                    Login
-                </p>
+                    <a href="/">
+                        <FavoriteIcon className="option-icon"/>
+                    </a>
+                    <a href='/'>
+                        <AccountCircleIcon className="option-icon"/>
+                    </a>
             </div>
             
         </header>

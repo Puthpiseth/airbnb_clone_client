@@ -117,7 +117,7 @@ function SearchBar(){
 
             <div className ="search-bar-date-wrapper" style = {{ display : dateSeachBtnDisplay }}>
                 <button onClick = { handleClickCalendarActive }>{ buttonText }</button>
-                <div style={ { display : calendarDisplay }}>
+                <div className= "calendar"style={ { display : calendarDisplay,  }}>
                     <Calendar className = "calendar"  ranges={ [selectionRange] } onChange={ handleSelect }/>
                 </div>
             </div>
@@ -140,7 +140,7 @@ function AutoComplete(props){
     },[props.active])
 
     return(
-            <ul style={{ display : display }} className= 'auto-complete-wrapper'>
+            <ul style={{ display : display}} className= 'auto-complete-wrapper'>
                 {props.results.map( (el,i) =><li key={i} style = {{ listStyleImage : `url(${Location})` }}>{el}</li>)}
             </ul>
     )
