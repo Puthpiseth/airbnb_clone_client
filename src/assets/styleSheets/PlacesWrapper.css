@@ -1,0 +1,15 @@
+.places-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 30px 300px 30px;
+      grid-template-rows: 30px 300px 30px;
+  max-width: 100%;
+  overflow: scroll;
+  grid-column-gap: 30px;
+}
+
+.places-wrapper > * {
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+/*# sourceMappingURL=PlacesWrapper.css.map */
