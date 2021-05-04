@@ -1,0 +1,85 @@
+.signup-login-card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.507);
+  position: absolute;
+  z-index: 6;
+}
+
+.signup-login-card-wrapper .signup-login-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60vh;
+  width: 60vw;
+  background: white;
+  padding: 2% 0;
+  border-radius: 10px;
+}
+
+.signup-login-card-wrapper .signup-login-card .upper-card-block {
+  border-bottom: lightgray 1px solid;
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2% 0;
+}
+
+.signup-login-card-wrapper .signup-login-card .upper-card-block h2 {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
+
+.signup-login-card-wrapper .signup-login-card .upper-card-block .close-icon {
+  margin-left: 5%;
+}
+
+.signup-login-card-wrapper .signup-login-card input {
+  outline-color: black;
+  width: 90%;
+  height: 27px;
+  border: 1px lightgray solid;
+}
+
+.signup-login-card-wrapper .signup-login-card input:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.signup-login-card-wrapper .signup-login-card input:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.signup-login-card-wrapper .signup-login-card input[type="submit"] {
+  width: 70%;
+  border-radius: 5px;
+  background-color: palevioletred;
+  height: 30px;
+}
+
+.signup-login-card-wrapper .signup-login-card p {
+  font-size: 0.8em;
+}
+/*# sourceMappingURL=SignComponent.css.map */

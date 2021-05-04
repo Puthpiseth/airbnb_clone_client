@@ -1,26 +1,20 @@
 import React from 'react';
 import Header from './Header';
 import Card from '../../utils/componentsUtils/Card'
-import '../../assets/styleSheets/Card.scss';
+import '../../assets/styleSheets/Home.scss';
 import home from '../../assets/images/home.jpg';
+import PlacesWrapper from '../../utils/componentsUtils/PlacesWrapper';
+import SignComponent from '../../utils/componentsUtils/SignComponent';
 
 function Home() {
     return (
-        <div>
+        <div className ="home-main-wrapper">
             <Header/>
-                <div className="home_section">
-                    <Card
-                        img={home}
-                        name="Logement entier"
-                        description="Studio Saint-Germain des Près"
-                    />
-                </div>
-                <div className="copyright_section">
-                    <p>&#169;2021 Airbnb Clone No right Reserved</p>
-
-                </div>
-                
-              
+            <SignComponent/>
+            <PlacesWrapper img={home} name="Logement entier"  description="Studio Saint-Germain des Près"/>
+            <div className="copyright_section">
+                <p>&#169;2021 Airbnb Clone No right Reserved</p>
+            </div>
         </div>
     )
 }
