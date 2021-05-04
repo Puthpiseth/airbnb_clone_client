@@ -6,6 +6,13 @@
         flex-direction : column;
         align-items: center;
         justify-content: space-between;
+        position : fixed;
+        z-index : 5;
+        width:100%;
+        // left:0;
+        background: white;
+        border : none;
+        padding-top: 5%;
     }
 
     &-form-wrapper{
@@ -20,7 +27,6 @@
             // display: none;
         }
     }
-    
     
     &-form{
         position :relative;
@@ -42,7 +48,7 @@
             padding: 1%;
             transform: translateX(30%);
             border-radius: 50%;
-            background-color: #ff0000;
+            // background-color: #ff0000;
         }
 
         div{
@@ -83,6 +89,13 @@
         display:flex;
         flex-direction: column;
         align-items: center;
+        
+        
+        .calendar{
+            height:100vh; 
+
+
+        }
     }
 }
 
