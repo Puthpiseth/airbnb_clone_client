@@ -2,7 +2,7 @@
     display: grid;
     grid-template-rows: 30px 300px 30px;
     max-width: 100%;
-    overflow: scroll;
+    overflow-x: scroll;
     grid-column-gap: 30px;
     & > *{
         grid-row: 2;
