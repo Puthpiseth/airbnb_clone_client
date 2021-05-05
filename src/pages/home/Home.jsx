@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './Header';
 import '../../assets/styleSheets/Home.scss';
 import home from '../../assets/images/home.jpg';
 import PlacesWrapper from '../../utils/componentsUtils/PlacesWrapper';
 import SignComponent from '../../utils/componentsUtils/SignComponent';
+import {AppContext} from '../../utils/context/appContext';
 
 function Home() {
+
+    const context = useContext(AppContext);
+
     return (
-        <div className ="home-main-wrapper">
+        <div className ="home-main-wrapper" style = { context.homePageState }>
             <Header/>
             <SignComponent/>
             <PlacesWrapper img={home} name="Logement entier"  description="Studio Saint-Germain des Près"/>
