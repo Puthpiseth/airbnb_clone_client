@@ -12,7 +12,7 @@ function Home() {
             <SignComponent/>
             <PlacesWrapper img={home} name="Logement entier"  description="Studio Saint-Germain des Près"/>
             <div className="copyright_section">
-                                        <p>&#169;2021 Airbnb Clone No right Reserved</p>
+                <p>&#169;2021 Airbnb Clone No right Reserved</p>
             </div>
         </div>
     )

@@ -8,7 +8,7 @@ function SignComponent(props){
     const context = useContext( AppContext );
 
     return (
-        <div className="signup-login-card-wrapper" style = {{ height : context.height }} onClick = {() => context.changeActive() } >
+        <div className="signup-login-card-wrapper" style = {{ height : context.height }}  >
             <form className="signup-login-card" >
                 <div className="upper-card-block">
                     <CloseIcon className="close-icon" onClick = { () => context.changeActive() }/>  
