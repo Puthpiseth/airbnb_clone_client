@@ -7,7 +7,7 @@ function Card({img, name, description, price_by_night}) {
     return (
         <figure className="card">
             <FavoriteIcon className="fav-icon"/>
-            <img src={img} />
+            <img src={img} alt="img"/>
             <figcaption>
                 
                 <p>

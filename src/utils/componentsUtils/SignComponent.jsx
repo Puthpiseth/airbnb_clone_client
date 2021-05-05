@@ -1,14 +1,17 @@
-import React from 'react';
+import React,{useState, useEffect, useContext} from 'react';
 import '../../assets/styleSheets/SignComponent.scss';
 import CloseIcon from '@material-ui/icons/Close';
+import {AppContext} from '../context/appContext';
 
-function SignComponent() {
-    
+function SignComponent(props){
+
+    const context = useContext( AppContext );
+
     return (
-        <div className="signup-login-card-wrapper">
-            <form className="signup-login-card">
+        <div className="signup-login-card-wrapper" style = {{ height : context.height }} onClick = {() => context.changeActive() } >
+            <form className="signup-login-card" >
                 <div className="upper-card-block">
-                    <CloseIcon className="close-icon"/>  
+                    <CloseIcon className="close-icon" onClick = { () => context.changeActive() }/>  
                     {/* <p>sign in</p> */}
                     <h2>sign up</h2>
                 </div>
@@ -21,11 +24,10 @@ function SignComponent() {
                 </div>
                 <input type="submit"/>
                 {/* <p> You already have an account ?<a href="#" alt=""> sign in</a></p> */}
-                <p> You haven't an account ?<a href="#" alt="">sign up</a></p>
+                <p> You haven't an account ?<a href="/">sign up</a></p>
             </form>
         </div>
     );
-    
 }
 
 export default SignComponent;
