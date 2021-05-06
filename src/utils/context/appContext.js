@@ -26,11 +26,13 @@ function AppC(props){
         }
     },[active]);
 
+
     const value = {
         changeActive : changeActive,
         height : height,
         display : loginDisplay,
-        homePageState : homePageState
+        homePageState : homePageState,
+        
     }
     return(
         <AppContext.Provider value={ value } >

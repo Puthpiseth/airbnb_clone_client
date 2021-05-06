@@ -3,7 +3,7 @@ import '../../assets/styleSheets/SignComponent.scss';
 import CloseIcon from '@material-ui/icons/Close';
 import {AppContext} from '../context/appContext';
 import {signUp, logIn} from '../RequestFunctions';
-
+import { AuthCtx } from '../context/AuthContext';
 //line 86
 const buttonChangeLogStyle ={
     border : "none",
@@ -22,7 +22,10 @@ function SignComponent(props){
     const [cardFace, setFace] = useState(0);
     //if we're on signup all fields are displayed
     const [displayFields, setDisplay] = useState("block");
+    const [response,setResponse] = useState({});
     const context = useContext( AppContext );
+    const authCtx = useContext( AuthCtx );
+
     
     useEffect(()=>{
 
@@ -40,7 +43,6 @@ function SignComponent(props){
              fieldsLabel[fields.indexOf(e.target)].classList.remove('field-active');
             }
         }))    
-
     },[])
 
     useEffect(()=>{
@@ -56,26 +58,21 @@ function SignComponent(props){
 
     }, [cardFace])
 
-    const handleClick = async ()=>{
-        await setFace( state =>  state < 1 ? state+1 : 0);
-        
-    }
+
+    const handleClick = async ()=> await setFace( state =>  state < 1 ? state+1 : 0);
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
         const userArr = Array.from(e.target.elements).slice(0, 5);
-        console.log(userArr)
         let response = {};
 
         if(cardFace !== 0){
             response = await logIn(userArr);
-            console.log(cardFace)
+            authCtx.load(response);
         }
         else{
             response = signUp(userArr);
-            
         }
-        console.log(response);
     }
 
     return (
