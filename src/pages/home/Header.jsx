@@ -14,6 +14,7 @@ function Header(){
     const context = useContext(AppContext);
 
     const handleClick = ()=> context.changeActive();
+    
         
     return(
         <header>
@@ -29,14 +30,14 @@ function Header(){
                 <a href = '#'>
                     <AccountCircleIcon onClick = { handleClick }className="option-icon"/>
                 </a>
-                <a href = '#'>
-                    <ChatBubbleOutlineIcon className="option-icon"/>
+                <a className="option-icon-disable" href = '#'>
+                    <ChatBubbleOutlineIcon className="option-icon "/>
                 </a>
-                <a href = '#'>
+                <a className="option-icon-disable" href = '#'>
                     <img src={AirbnbIcon} className="option-icon"/>
                 </a>
-                <a href = '#'>
-                    <AccountCircleIcon onClick = { handleClick }className="option-icon"/>
+                <a className="option-icon-disable" href = '#'>
+                    <AccountCircleIcon onClick = { handleClick } className="option-icon"/>
                 </a>
             </div>
         </header>
