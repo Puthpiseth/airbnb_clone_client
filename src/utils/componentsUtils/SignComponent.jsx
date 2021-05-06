@@ -13,7 +13,7 @@ const buttonChangeLogStyle ={
 }
 
 function SignComponent(props){
-    console.log(useContext(AuthCtx))
+    
     const [linkText, setText] = useState({ text:"You haven't an account ?", buttonText : "sign up" });
     /**
      * allow to know which face we're on
@@ -70,7 +70,7 @@ function SignComponent(props){
         if(cardFace !== 0){
             response = await logIn(userArr);
             authCtx.load(response);
-            console.log(response);
+            
         }
         else{
             response = signUp(userArr);

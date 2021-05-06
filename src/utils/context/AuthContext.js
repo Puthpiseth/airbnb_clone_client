@@ -7,7 +7,6 @@ function AuthContext(props) {
 
     const [logResponse, setLogResponse] = useState({});
     const appCtx = useContext(AppContext);
-    console.log(appCtx)
 
     const loadResponse = (newResponse)=> setLogResponse( response => newResponse);
 
@@ -20,7 +19,7 @@ function AuthContext(props) {
 
     const val = {
         load : loadResponse,
-        response : logResponse
+        response : logResponse,
     }
 
     return (

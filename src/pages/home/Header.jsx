@@ -15,7 +15,6 @@ function Header(){
 
     const context = useContext(AppContext);
     const authCtx = useContext( AuthCtx );
-    console.log(authCtx);
     const handleClick = ()=> context.changeActive();
 
     useEffect(()=>{

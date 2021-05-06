@@ -1,0 +1,98 @@
+header {
+  height: 100vh;
+  position: relative;
+}
+
+.options-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 12vh;
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  border-top: 0.5px solid lightgray;
+  z-index: 2;
+  top: 89%;
+}
+
+.options-nav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.options-nav a:first-child .option-icon {
+  fill: #ff3c00;
+  stroke: none;
+}
+
+.options-nav a::before {
+  content: "Explore";
+  position: absolute;
+  top: 75%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  color: black;
+  font-size: 0.8em;
+}
+
+.options-nav a:nth-child(2)::before {
+  content: "Favorite";
+  left: 12%;
+}
+
+.options-nav a:nth-child(3)::before {
+  content: "Login";
+  left: 35%;
+}
+
+.options-nav a:nth-child(4)::before {
+  content: "Message";
+}
+
+.options-nav a:nth-child(5)::before {
+  content: "Voyage";
+}
+
+.options-nav a:last-child::before {
+  content: "Profil";
+  left: 35%;
+}
+
+.options-nav .option-icon {
+  max-width: 30px;
+  stroke: rgba(0, 0, 0, 0.596);
+  fill: white;
+}
+
+.options-nav .option-icon-disable:nth-child(n) {
+  display: none;
+}
+
+.options-nav .option-icon-active:nth-child(n) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=Header.css.map */
