@@ -9,7 +9,6 @@ function Card({img, name, description, price_by_night}) {
             <FavoriteIcon className="fav-icon"/>
             <img src={img} alt="img"/>
             <figcaption>
-                
                 <p>
                     <StarIcon className="star_icon"/>26 commentaires<br/>
                     {name}<br/>
