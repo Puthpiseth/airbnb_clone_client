@@ -4,6 +4,8 @@ import Banner from './Banner';
 import SearchIcon from '@material-ui/icons/Search';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import AirbnbIcon from '../../assets/images/airbnb.svg';
 import '../../assets/styleSheets/Header.scss';
 import {AppContext} from '../../utils/context/appContext';
 
@@ -23,6 +25,15 @@ function Header(){
                 </a>
                 <a href="/">
                     <FavoriteIcon className="option-icon"/>
+                </a>
+                <a href = '#'>
+                    <AccountCircleIcon onClick = { handleClick }className="option-icon"/>
+                </a>
+                <a href = '#'>
+                    <ChatBubbleOutlineIcon className="option-icon"/>
+                </a>
+                <a href = '#'>
+                    <img src={AirbnbIcon} className="option-icon"/>
                 </a>
                 <a href = '#'>
                     <AccountCircleIcon onClick = { handleClick }className="option-icon"/>

@@ -43,8 +43,18 @@ header {
         &:nth-child(2)::before{
                 content: "Favorite";
         }
+        &:nth-child(3)::before{
+            content: "Login";
+            left : 35%;
+        }
+        &:nth-child(4)::before{
+            content: "Message";
+        }
+        &:nth-child(5)::before{
+            content: "Voyage";
+        }
         &:last-child::before{
-            content : "Login";
+            content : "Profil";
             left : 35%;
         }
     }    
