@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AppC from './utils/context/appContext'
+import AppC from './utils/context/appContext';
+import AuthContext from './utils/context/AuthContext';
 
 ReactDOM.render(
     <AppC>
-      <App />
+      <AuthContext>
+        <App />
+      </AuthContext>
     </AppC>,
   document.getElementById('root')
 );

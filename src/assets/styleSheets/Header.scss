@@ -5,21 +5,22 @@ header {
 
 .options-nav {
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
-    height: 10vh;
+    height: 12vh;
     padding: 0;
     position: fixed;
+    bottom : 0;
     width: 100%;
     background: white;
     border-top: 0.5px solid lightgray;
     z-index: 2;
-    top : 91%;
+    top : 89%;
     
-    a{
+    a {
+        // margin : 0 5%;
         display: flex;
         height : 80%;
-        // border : 2px solid red;
         justify-content:center;
         align-items: center;
         position : relative;
@@ -35,7 +36,6 @@ header {
             content: "Explore";
             position : absolute;
             top : 75%;
-            left : 12%;
             transform: translateX(-50%);
             width:100%;
             color:black;
@@ -43,6 +43,7 @@ header {
         }
         &:nth-child(2)::before{
                 content: "Favorite";
+                left : 12%;
         }
         &:nth-child(3)::before{
             content: "Login";
@@ -66,11 +67,13 @@ header {
         stroke: rgba(0, 0, 0, 0.596);
         fill: white;
 
-        &-disable {
+        &-disable::nth-child(n) {
             display: none;
+            align-items:center
+
         }
         &-active:nth-child(n) {
-            display: block
+            display: inline
         }
     }
        
