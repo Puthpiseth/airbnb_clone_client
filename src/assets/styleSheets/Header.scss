@@ -1,84 +1,74 @@
 header {
     height: 100vh;
-    position:relative;
+    position: relative;
 }
 
 .options-nav {
-    display:flex;
+    display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
     height: 12vh;
     padding: 0;
     position: fixed;
-    bottom : 0;
+    bottom: 0;
     width: 100%;
     background: white;
     border-top: 0.5px solid lightgray;
     z-index: 2;
-    top : 89%;
-    
+    top: 89%;
     a {
         // margin : 0 5%;
         display: flex;
-        height : 80%;
-        justify-content:center;
+        height: 80%;
+        justify-content: center;
         align-items: center;
-        position : relative;
+        position: relative;
         &:first-child {
-            
-            & .option-icon{
-                     fill: rgb(255, 60, 0);
-                     stroke: none;
+            & .option-icon {
+                fill: rgb(255, 60, 0);
+                stroke: none;
             }
-            
-         }
-        &::before{
+        }
+        &::before {
             content: "Explore";
-            position : absolute;
-            top : 75%;
+            position: absolute;
+            top: 75%;
             transform: translateX(-50%);
-            width:100%;
-            color:black;
+            width: 100%;
+            color: black;
             font-size: 0.8em;
         }
-        &:nth-child(2)::before{
-                content: "Favorite";
-                left : 12%;
+        &:nth-child(2)::before {
+            content: "Favorite";
+            left: 12%;
         }
-        &:nth-child(3)::before{
+        &:nth-child(3)::before {
             content: "Login";
-            left : 35%;
+            left: 35%;
         }
-        &:nth-child(4)::before{
+        &:nth-child(4)::before {
             content: "Message";
         }
-        &:nth-child(5)::before{
+        &:nth-child(5)::before {
             content: "Voyage";
         }
-        &:last-child::before{
-            content : "Profil";
-            left : 35%;
-        }
-    }    
-    .option-icon {
-        max-width: 30px;
-        // height: 30px;
-        // width: 30px;
-        stroke: rgba(0, 0, 0, 0.596);
-        fill: white;
-
-        &-disable::nth-child(n) {
-            display: none;
-            align-items:center
-
-        }
-        &-active:nth-child(n) {
-            display: inline
+        &:last-child::before {
+            content: "Profil";
+            left: 35%;
         }
     }
-       
-   
-
-    
+    .option-icon {
+        max-width: 30px;
+        stroke: rgba(0, 0, 0, 0.596);
+        fill: white;
+        &-disable:nth-child(n) {
+            display: none;
+            
+        }
+        &-active:nth-child(n) {
+            display: flex;
+            align-items: center;
+            
+        }
+    }
 }
-

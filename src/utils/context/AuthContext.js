@@ -7,19 +7,19 @@ function AuthContext(props) {
 
     const [logResponse, setLogResponse] = useState({});
     const appCtx = useContext(AppContext);
+    console.log(appCtx)
 
-    const loadResponse = async (newResponse)=> await setLogResponse( response => newResponse);
+    const loadResponse = (newResponse)=> setLogResponse( response => newResponse);
 
     useEffect(()=>{
         if(logResponse.status === 200){
             appCtx.changeActive();
         }
         
-    return ()=> setLogResponse(resp =>{});
     },[logResponse])
 
     const val = {
-        load : setLogResponse,
+        load : loadResponse,
         response : logResponse
     }
 

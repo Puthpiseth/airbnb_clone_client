@@ -15,6 +15,7 @@ function Header(){
 
     const context = useContext(AppContext);
     const authCtx = useContext( AuthCtx );
+    console.log(authCtx);
     const handleClick = ()=> context.changeActive();
 
     useEffect(()=>{
@@ -28,9 +29,8 @@ function Header(){
         const optionIconTochange = Array.from(document.querySelectorAll('.option-icon-disable'));
         optionIconTochange.forEach( optionIcon => optionIcon.classList.add('option-icon-active'));
         
-        const loginIcon = document.querySelector('.option-icon.login-option').classList.add('option-icon-disable');
-        console.log(loginIcon)
-        
+        // const loginIcon = document.querySelector('.option-icon.login-option').classList.add('option-icon-disable');
+        // console.log(loginIcon)
     }
         
     return(
