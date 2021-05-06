@@ -28,7 +28,8 @@ header {
             & .option-icon{
                      fill: rgb(255, 60, 0);
                      stroke: none;
-                 }
+            }
+            
          }
         &::before{
             content: "Explore";
@@ -58,13 +59,23 @@ header {
             left : 35%;
         }
     }    
-        
     .option-icon {
         max-width: 30px;
         // height: 30px;
         // width: 30px;
         stroke: rgba(0, 0, 0, 0.596);
         fill: white;
+
+        &-disable {
+            display: none;
+        }
+        &-active:nth-child(n) {
+            display: block
+        }
     }
+       
+   
+
+    
 }
 
