@@ -2,6 +2,7 @@ import React,{useState, useContext, useEffect} from 'react';
 import '../../assets/styleSheets/SignComponent.scss';
 import CloseIcon from '@material-ui/icons/Close';
 import {AppContext} from '../context/appContext';
+import {signUp, logIn} from '../RequestFunctions';
 
 //line 86
 const buttonChangeLogStyle ={
@@ -43,7 +44,6 @@ function SignComponent(props){
     },[])
 
     useEffect(()=>{
-
         if(cardFace === 0){
             setText(text =>({text:"haven't an account ?", buttonText : "sign up" }));
             setDisplay(display => "block");
@@ -56,13 +56,31 @@ function SignComponent(props){
 
     }, [cardFace])
 
-    const handleClick = ()=>{
-        setFace( state =>  state < 1 ? state+1 : 0);
+    const handleClick = async ()=>{
+        await setFace( state =>  state < 1 ? state+1 : 0);
+        
+    }
+
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        const userArr = Array.from(e.target.elements).slice(0, 5);
+        console.log(userArr)
+        let response = {};
+
+        if(cardFace !== 0){
+            response = await logIn(userArr);
+            console.log(cardFace)
+        }
+        else{
+            response = signUp(userArr);
+            
+        }
+        console.log(response);
     }
 
     return (
         <div className="signup-login-card-wrapper" style = {{ height : context.height }} >
-            <form className="signup-login-card" >
+            <form className="signup-login-card" onSubmit = { handleSubmit }>
                 <div className="upper-card-block">
                     <CloseIcon className="close-icon" onClick = { () => context.changeActive() }/>  
                     {/* <p>sign in</p> */}
@@ -82,7 +100,12 @@ function SignComponent(props){
                 </div>
                 <input type="submit"/>
                 {/* <p> You already have an account ?<a href="#" alt=""> sign in</a></p> */}
-                <p>{ linkText.text }<button onClick= { handleClick } style = { buttonChangeLogStyle }>{ linkText.buttonText }</button></p>
+                <p>
+                    { linkText.text }
+                    <span onClick= { handleClick } style = { buttonChangeLogStyle }>
+                         { linkText.buttonText } 
+                    </span>
+                </p>
             </form>
         </div>
     );
