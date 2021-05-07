@@ -10,7 +10,6 @@ import '../../assets/styleSheets/Header.scss';
 import {AppContext} from '../../utils/context/appContext';
 import { AuthCtx } from'../../utils/context/AuthContext';
 
-
 function Header(){
 
     const context = useContext(AppContext);

@@ -4,7 +4,7 @@ import { AuthCtx } from '../../utils/context/AuthContext';
 
 function Hote(props) {
     const authCtx = useContext( AuthCtx )
-    
+    console.log(localStorage.getItem('auth'));
     // if(authCtx.reponse.token !== "undifined"){
         return (
             <div>

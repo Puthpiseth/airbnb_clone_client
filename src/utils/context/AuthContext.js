@@ -14,9 +14,16 @@ function AuthContext(props) {
         if(logResponse.status === 200){
             appCtx.changeActive();
         }
-        
-    },[logResponse])
+    }, [logResponse])    
 
+    useEffect(()=>{
+
+        if(logResponse.status){
+            localStorage.setItem('auth', JSON.stringify(logResponse.data));
+        }    
+       
+    },[logResponse])    
+        
     const val = {
         load : loadResponse,
         response : logResponse,
