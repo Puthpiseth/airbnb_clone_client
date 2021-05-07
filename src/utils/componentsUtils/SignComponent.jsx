@@ -4,7 +4,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import {AppContext} from '../context/appContext';
 import {signUp, logIn} from '../RequestFunctions';
 import { AuthCtx } from '../context/AuthContext';
-
 //line 86
 const buttonChangeLogStyle ={
     border : "none",
@@ -13,7 +12,7 @@ const buttonChangeLogStyle ={
 }
 
 function SignComponent(props){
-    console.log(useContext(AuthCtx))
+    
     const [linkText, setText] = useState({ text:"You haven't an account ?", buttonText : "sign up" });
     /**
      * allow to know which face we're on
@@ -27,7 +26,6 @@ function SignComponent(props){
     const context = useContext( AppContext );
     const authCtx = useContext( AuthCtx );
 
-    
     useEffect(()=>{
 
        const fields =  Array.from(document.querySelectorAll('.field'));
@@ -59,7 +57,6 @@ function SignComponent(props){
 
     }, [cardFace])
 
-
     const handleClick = async ()=> await setFace( state =>  state < 1 ? state+1 : 0);
 
     const handleSubmit = async (e)=>{
@@ -69,8 +66,8 @@ function SignComponent(props){
 
         if(cardFace !== 0){
             response = await logIn(userArr);
-            authCtx.load(response);
-            console.log(response);
+            await authCtx.load(response);
+            
         }
         else{
             response = signUp(userArr);

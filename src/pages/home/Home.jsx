@@ -6,10 +6,10 @@ import PlacesWrapper from '../../utils/componentsUtils/PlacesWrapper';
 import SignComponent from '../../utils/componentsUtils/SignComponent';
 import {AppContext} from '../../utils/context/appContext';
 
-function Home() {
+function Home(props) {
 
     const context = useContext(AppContext);
-
+    
     return (
         <div className ="home-main-wrapper" style = { context.homePageState }>
             <Header/>

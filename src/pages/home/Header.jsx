@@ -10,12 +10,10 @@ import '../../assets/styleSheets/Header.scss';
 import {AppContext} from '../../utils/context/appContext';
 import { AuthCtx } from'../../utils/context/AuthContext';
 
-
 function Header(){
 
     const context = useContext(AppContext);
     const authCtx = useContext( AuthCtx );
-    console.log(authCtx);
     const handleClick = ()=> context.changeActive();
 
     useEffect(()=>{
