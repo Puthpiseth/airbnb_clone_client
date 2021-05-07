@@ -1,15 +1,14 @@
-import { useContext } from 'react';
 import NavBar from './NavBar';
-import { AuthCtx } from '../../utils/context/AuthContext';
+import '../../assets/styleSheets/Hote.scss';
+import FormComponent from './FormComponent'
 
 function Hote(props) {
-    const authCtx = useContext( AuthCtx )
         return (
-            <div>
+            <div className ="Hote-page-wrapper">
                 <NavBar/>
+                <FormComponent/>
             </div>
         )
-    
 }
 
 export default Hote;
