@@ -6,12 +6,15 @@ function AppC(props){
 
     const [ active, setActive] = useState(0);
     const [ height, setHeight] = useState(0);
+    const [addPlaceFromStep, setStep] = useState(0);
     const [loginDisplay , setDisplay] = useState("none");
     //if login card displayed we can't scroll homepage anymore 
     const [homePageState, setState] = useState({overflowY : "scroll", height : "100%"});
 
     const changeActive = () => setActive( active => active < 1 ? active + 1 : 0 );
-    
+    const nextStep   = () => setStep(step => step < 3 ? step +1 : step);
+    const prevStep = ()=> setStep (step => step > 0 ? step -1 : step);
+
     useEffect(()=>{
         if(active > 0){
             setHeight(height => "100%");
@@ -22,18 +25,19 @@ function AppC(props){
             setHeight(height => 0);
             setDisplay(display => "none");
             setState( state => ({overflowY : "scroll", height : "100%"}));
-
         }
     },[active]);
-
 
     const value = {
         changeActive : changeActive,
         height : height,
         display : loginDisplay,
         homePageState : homePageState,
-        
+        step : addPlaceFromStep,
+        nextStep : nextStep,
+        prevStep : prevStep
     }
+    
     return(
         <AppContext.Provider value={ value } >
             {props.children}
