@@ -6,27 +6,40 @@ const AuthCtx = React.createContext();
 function AuthContext(props) {
 
     const [logResponse, setLogResponse] = useState({});
+    const [isAuth, setAuth] = useState(false);
     const appCtx = useContext(AppContext);
 
     const loadResponse = (newResponse)=> setLogResponse( response => newResponse);
 
     useEffect(()=>{
-        if(logResponse.status === 200){
-            appCtx.changeActive();
-        }
-    }, [logResponse])    
-
-    useEffect(()=>{
 
         if(logResponse.status){
+            appCtx.changeActive();
             localStorage.setItem('auth', JSON.stringify(logResponse.data));
         }    
        
     },[logResponse])    
-        
+    
+    useEffect(()=>{
+
+        if(localStorage.getItem('auth')){
+            setAuth( isAuth => true);
+            localStorage.setItem('isAuth', true);
+            console.log('ok')
+        }
+        else{
+            setAuth( isAuth => false);
+            localStorage.setItem('isAuth', false);
+            console.log('not')
+
+        }
+    }, [localStorage.getItem('auth')])
+
+
     const val = {
         load : loadResponse,
         response : logResponse,
+        isAuth : isAuth
     }
 
     return (
