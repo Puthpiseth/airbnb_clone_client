@@ -1,25 +1,114 @@
-.form-step1{
+.form-step{
     display :flex;
     flex-direction :column;
     justify-content: space-evenly;
-    h2{
-        font-size: 1.3rem;
-        span{
-            font-size: 1rem;
+
+    &0{
+        h2{
+            font-size: 1.3rem;
+            span{
+                font-size: 1rem;
+            }
+        }
+        input{
+            height : 30px;
+        }
+        button{
+            align-self: flex-end;
+            margin-top : 2%;
+            height : 30px;
         }
     }
-    input{
-        height : 30px;
+
+    &1{
+        select{
+            height : 45px;
+            border-radius : 8px;
+            margin-top : 10%;
+        }
     }
-    button{
-        align-self: flex-end;
-        margin-top : 2%;
-        height : 30px;
+
+    &2{
+        .counter{
+            margin : 5% 0;
+            display: flex;
+            // border : 2px solid red;
+            justify-content: center;
+            &>*{
+                margin : 3%;
+            }
+            
+            span{
+                width:50%;
+            }
+            div{
+                display: flex;
+                align-items : center;
+                // border : 1px solid;
+                width : 22%;
+                justify-content: space-between;
+
+                .action-icon{
+                        fill : rgba(0, 0, 0, 0.733);
+                }
+                .count{
+                    width : 10%;
+                }
+            }
+        }
     }
+
+    &-lastStep{
+        margin-top : 5%;
+        justify-content: space-between;
+        border : 0.03px solid red;
+        width : 80vw;
+        height : 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        div:first-child{
+            width:90%;
+            // border : 2px solid yellow;
+            display : flex;
+            justify-content: space-around;
+            input{
+                width : 30%;
+            }
+        }
+
+        div + input{
+            width : 88%;
+        }
+        div:nth-child(3){
+            display: flex;
+            width:88%;
+            margin-top: 3%;
+            // justify-content: flex-start;
+            // border:2px solid green;
+            // border : 2px solid green;
+            height : 30vh;
+            align-items: baseline;
+            input{
+                border : 2px solid;
+            }
+            p{
+                display: inline;
+                font-size: .8rem;
+                // border: 3px solid red;
+            }
+        }
+        input[type='submit']{
+            width : 80px;
+            height : 30px;
+            border : 0.05px solid black;
+            border-radius: 8px;
+        }
+    }
+    
 }
 
-.step-switcher{
-    position :absolute;
-    top : 100%;
-}
+
+
 

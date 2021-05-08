@@ -1,0 +1,18 @@
+.step-switcher{
+    display:none;
+    position : absolute;
+    top : 90vh;
+    width : 90%;
+    align-self : center;
+    justify-content: space-between;
+
+    &-active{
+        display: flex;
+    }
+}
+
+.next{
+    &-disable{
+        visibility: hidden;
+    }
+}

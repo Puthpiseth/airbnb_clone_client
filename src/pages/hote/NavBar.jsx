@@ -6,7 +6,9 @@ import '../../assets/styleSheets/NavBar.scss';
 function NavBar() {
     return ( 
         <div className="navbar">
-            <img className="airbnb-icon" src={AirbnbIcon}/>
+            <a href="/">
+                <img className="airbnb-icon" src={AirbnbIcon}/>
+            </a>
             <button>Créer une annonce</button>
         </div>
     )
