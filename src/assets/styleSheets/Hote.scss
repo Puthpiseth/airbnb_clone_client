@@ -1,8 +1,9 @@
 .Hote-page-wrapper{
     display: flex;
     flex-direction : column;
+    justify-content: space-between;
     align-items: center;
-    padding : 4% 3% 0 3%;
+    padding : 0 3% 0 3%;
     position: relative;
 }
 

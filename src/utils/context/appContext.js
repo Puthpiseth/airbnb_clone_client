@@ -8,13 +8,11 @@ function AppC(props){
     const [ height, setHeight] = useState(0);
     const [addPlaceFromStep, setStep] = useState(0);
     const [loginDisplay , setDisplay] = useState("none");
+
     //if login card displayed we can't scroll homepage anymore 
     const [homePageState, setState] = useState({overflowY : "scroll", height : "100%"});
-
-    const changeActive = () => setActive( active => active < 1 ? active + 1 : 0 );
-    const nextStep   = () => setStep(step => step < 3 ? step +1 : step);
-    const prevStep = ()=> setStep (step => step > 0 ? step -1 : step);
-
+    const [place, setItem] = useState([]);
+    
     useEffect(()=>{
         if(active > 0){
             setHeight(height => "100%");
@@ -28,6 +26,18 @@ function AppC(props){
         }
     },[active]);
 
+    useEffect(()=>{
+        // console.log(place)
+    }, [place])
+
+    const changeActive = () => setActive( active => active < 1 ? active + 1 : 0 );
+    //go to the previous step to add a place form step in host page
+    const nextStep   = () => setStep(step => step < 3 ? step +1 : step);
+    //go to the next step to add a place form step in host page
+    const prevStep = ()=> setStep (step => step > 0 ? step -1 : step);
+    //Add a place
+    const addPlaceItem = (item) => setItem (place => [...place,item]);
+
     const value = {
         changeActive : changeActive,
         height : height,
@@ -35,7 +45,9 @@ function AppC(props){
         homePageState : homePageState,
         step : addPlaceFromStep,
         nextStep : nextStep,
-        prevStep : prevStep
+        prevStep : prevStep,
+        place : place,
+        addPlaceItem : addPlaceItem,
     }
     
     return(

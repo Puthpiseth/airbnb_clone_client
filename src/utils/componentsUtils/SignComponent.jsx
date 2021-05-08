@@ -2,7 +2,7 @@ import React,{useState, useContext, useEffect} from 'react';
 import '../../assets/styleSheets/SignComponent.scss';
 import CloseIcon from '@material-ui/icons/Close';
 import {AppContext} from '../context/appContext';
-import {signUp, logIn} from '../RequestFunctions';
+import {signUp, logIn} from '../services/utilsRequestFunctions';
 import { AuthCtx } from '../context/AuthContext';
 //line 86
 const buttonChangeLogStyle ={
