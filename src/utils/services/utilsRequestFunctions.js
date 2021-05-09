@@ -23,7 +23,7 @@ async function logIn(arr){
 
 async function getLastPlaces(){
     try{
-        const response = await axios.get('http://localhost:2000/airbnb/places/last');
+        const response = await axios.get('http://localhost:2000/airbnb-clone/places/last');
         return response.data.data;
     }
     catch(err){

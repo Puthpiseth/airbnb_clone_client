@@ -1,15 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import '../../assets/styleSheets/details.scss';
 import { getInfo } from '../../utils/services/utilsRequestFunctions';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import {AuthCtx} from '../../utils/context/AuthContext';
+import {book_a_place} from '../../utils/services/tourist';
 
 function Details(props){
     const [info, setInfo] = useState({});
     const id = props.match.params.id;
     const [startDate, setStart] = useState();
     const [endDate, setEnd ] = useState();
+    const ctx = useContext(AuthCtx);
+    const [actionButtonDisplay, setDisplay] = useState("none");
+    const [authorization , setAuthorization] = useState('');
+
     let time = null;
-    const role = JSON.parse(localStorage.getItem('auth')).role;
+    let role = '';
+    let token = '';
+
+    if(localStorage.getItem('auth')){
+        role = JSON.parse(localStorage.getItem('auth')).role;
+        token = JSON.parse(localStorage.getItem('auth')).token
+    }
+
     useEffect(()=>{
 
         const func = async()=>{
@@ -20,6 +33,17 @@ function Details(props){
         
     },[info])
 
+
+    useEffect(()=>{
+        if(role === "touriste" || role === "hote")
+                setDisplay(display => "block");
+        else{
+            setDisplay(dislay => "none");
+        }
+            
+    },[ctx.isAuth])
+
+
     useEffect(()=>{
         if(info.available)
             time = window.setTimeout(()=>manageDateFormat(info.available),0);
@@ -28,7 +52,25 @@ function Details(props){
         }
     },[info])
 
-    const handleClick = () => role === 'hote' ? props.history.push(`${props.match.url}/modifier`) : false;
+    const handleClick = async() => {
+        
+        if(role === 'hote'){
+            props.history.push(`${props.match.url}/modifier`)
+        }
+        //si l'utilisateur est un touriste il ne peut que réserve depuis la page détail
+        else{
+
+            const place = {
+                token : token,
+                place_id : props.match.params.id,
+                check_in : startDate,
+                check_out : endDate
+            }
+            const response = await book_a_place(place);
+            console.log(response);
+        }
+    }
+
     const manageDateFormat = (date)=>{
         const dateArr = date.split('/');
         const first = new Date(dateArr[0]).getTime();
@@ -81,7 +123,7 @@ function Details(props){
                         { endDate }
                     </h4>
                 </div>
-                <button onClick = { handleClick } className = "book-a-place">{role === "hote" ? "Modifier" : "Réserver"}</button>
+                <button onClick = { handleClick }style = {{ display : actionButtonDisplay }} className = "book-a-place">{ role === "hote" ? "Modifier" : "Réserver"}</button>
             </div>
             
 

@@ -10,7 +10,6 @@ import { searchByCity } from '../services/utilsRequestFunctions';
 import { AppContext } from '../context/appContext';
 
 function SearchBar(){
-
     const [calendarDisplay, setCalendarDisplay] = useState('none');
     const [cancelButtonDisplay, setCancelButton] = useState("none");
     const [dateSeachBtnDisplay , setDateBtn] = useState("block");
@@ -21,11 +20,15 @@ function SearchBar(){
     const [state, setState] = useState(0);
     const [fetchResult, setResult] = useState([]);
     const [fetchComplete, setFetchComplete] = useState([]);
+  
     //changing button that displays calendar
     const [buttonText, setButtonText] = useState('search date');
     const ctx = useContext(AppContext);
+    
     //Select date range
     const [selectionRange, setSelectionRange] = useState({startDate : new Date(), enDate : new Date()});
+
+   
 
     useEffect(()=>{
         const arr = ["baba", "babo", "bibi", "bobo", "bobi","koko","tato", "tito"];
