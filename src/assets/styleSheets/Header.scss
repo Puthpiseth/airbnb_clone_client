@@ -50,7 +50,8 @@ header {
             content: "Message";
         }
         &:nth-child(5)::before {
-            content: "Voyage";
+            content: "Réservation";
+            left : 25%;
         }
         &:last-child::before {
             content: "Profil";
@@ -71,4 +72,9 @@ header {
             
         }
     }
+}
+
+.option-disable{
+    display : none !important;
+    // overflow : hidden ;
 }

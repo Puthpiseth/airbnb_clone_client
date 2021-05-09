@@ -92,7 +92,7 @@ function SignComponent(props){
                     <input className = "field" type="text" id = "password" name="password" />
                     <label className = "field-label" htmlFor="passWord">enter your password</label>
                 </div>
-                <input type="submit"/>
+                <input type="submit" />
                 {/* <p> You already have an account ?<a href="#" alt=""> sign in</a></p> */}
                 <p>
                     { linkText.text }

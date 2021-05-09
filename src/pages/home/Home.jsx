@@ -9,6 +9,7 @@ import { getLastPlaces } from '../../utils/services/utilsRequestFunctions';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 function Home(props) {
+    
 
     const [placesArr, setPlaceArr] = useState([]);
     const [searchResult, setResult] = useState([]);
@@ -30,13 +31,10 @@ function Home(props) {
         <div className ="home-main-wrapper" style = { context.homePageState }>
             <Header/>
             <SignComponent/>
-            <PlacesWrapper history = {props.history} places = { searchResult} img={home}>
-                <LocationOnIcon/>
+            <PlacesWrapper history = {props.history} places = { searchResult} />
+                
 
-            </PlacesWrapper>
-
-            <PlacesWrapper history = {props.history} places = { placesArr }img={home}>
-            </PlacesWrapper>
+            <PlacesWrapper history = {props.history} places = { placesArr }img={home} />
             <div className="copyright_section">
                 <p>&#169;2021 Airbnb Clone No right Reserved</p>
             </div>

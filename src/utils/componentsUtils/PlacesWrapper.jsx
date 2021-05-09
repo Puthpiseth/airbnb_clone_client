@@ -6,7 +6,6 @@ import '../../assets/styleSheets/PlacesWrapper.scss';
 function PlacesWrapper(props) {
     
     const handleShowDetails = (e) =>{
-        console.log("coucou")
         const id = e.currentTarget.getAttribute('data');
         props.history.push(`/details/${id}`);
     }

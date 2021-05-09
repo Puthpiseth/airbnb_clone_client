@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../../assets/styleSheets/ModifInfo.scss';
-import {edit} from '../../utils/services/host';
+import {edit_place, remove_a_place} from '../../utils/services/host';
 
 function ModifInfo(props){
 
@@ -10,9 +10,22 @@ function ModifInfo(props){
     const numbers = ["max_guests","rooms", "bathrooms", "price_by_night"];
     let elements = [];
     
-    console.log(props)
+
     const handleClickFieldsActive = () => document.querySelector('.step-2').classList.toggle('step-2-active');
-    
+
+    const handleRemove = async(e)=>{
+        
+        try{
+            const response = await remove_a_place(props.match.params.id);
+            if(response.status === 200){
+                props.history.push('/')
+            }
+        }
+        catch(err){
+            props.history.push('/')
+        }
+    }
+
     const handleSubmit = async (e)=>{
         e.preventDefault();
         const name = e.target.elements.name.value;
@@ -49,8 +62,11 @@ function ModifInfo(props){
             if(window.confirm("Êtes-vous sûr ?")){
                 newInfoFilter = newInfoFilter.map((el) => numbers.indexOf(el[0]) !== -1 ? [el[0],Number(el[1])]: el);
                 newInfoFilter.forEach(el => console.log(typeof el[1]))
-                const response = await edit(newInfoFilter, props.match.params.id);
-                console.log(response);
+                try{
+                    await edit_place(newInfoFilter, props.match.params.id);
+                }catch(err){
+                    props.history.push('/');
+                }
             }
         }
     }
@@ -62,7 +78,11 @@ function ModifInfo(props){
                 <span>
                     Chambres, salles de bains, nombre de voyaguers,etc... 
                 </span>
-                <span onClick = { handleClickFieldsActive }>Modifier</span>
+                <span className = "main-options-container">
+                    <span onClick = { handleClickFieldsActive }>Modifier</span>
+                    <span onClick = { handleRemove }>Retirer l'annonce</span>
+                </span>
+                
             </p>            
 
             <div className ="step step-2 ">
@@ -84,9 +104,9 @@ function ModifInfo(props){
                 <span>
                     photos... 
                 </span>
-                <button >Modifier</button>
+                <button className = "validate-modif">Modifier</button>
             </div>
-            <input type="submit" value='Valider'/>
+            <input type="submit" value='Valider' className = "validate-modif"/>
         </form>
     )
 }

@@ -25,7 +25,6 @@ function AuthContext(props) {
         if(localStorage.getItem('auth')){
             setAuth( isAuth => true);
             localStorage.setItem('isAuth', true);
-            console.log('ok')
         }
         else{
             setAuth( isAuth => false);

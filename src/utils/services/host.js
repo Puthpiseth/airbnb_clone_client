@@ -24,14 +24,26 @@ async function add_a_place(place){
     }
 }
 
-async function edit(arr, place_id){
-
+async function edit_place(arr, place_id){
     const token = JSON.parse(localStorage.getItem('auth')).token;
     const config = {
         token : token,
         data : arr
     }
-    return axios.patch(`http://localhost:2000/airbnb/places/edit/${place_id}`, config);
+    return axios.patch(`http://localhost:2000/airbnb-clone/places/edit/${place_id}`, config);
 }
 
-export {add_a_place, edit};
+async function remove_a_place(place_id){
+    const token = JSON.parse(localStorage.getItem('auth')).token;
+    const config = {
+        token : token,
+        place_id: place_id
+    }
+    
+    console.log(config)
+    console.log(config)
+    return await axios.delete('http://localhost:2000/airbnb-clone/places/delete',{data : config });
+    
+}
+export {add_a_place, edit_place, remove_a_place};
+
