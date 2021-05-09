@@ -3,16 +3,16 @@ import '../../assets/styleSheets/Card.scss';
 import StarIcon from '@material-ui/icons/Star';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
-function Card({img, name, description, price_by_night}) {
+function Card(props) {
     return (
-        <figure className="card">
+        <figure className="card" onClick = { props.handleClick } data= { props.data } >
             <FavoriteIcon className="fav-icon"/>
-            <img src={img} alt="img"/>
+            <img src={props.img} alt="img"/>
             <figcaption>
                 <p>
                     <StarIcon className="star_icon"/>26 commentaires<br/>
-                    {name}<br/>
-                    {description}
+                    {props.name}<br/>
+                    {props.description}
                 </p>               
             </figcaption>            
         </figure>

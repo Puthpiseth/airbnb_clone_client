@@ -4,6 +4,7 @@
     max-width: 100%;
     overflow-x: scroll;
     grid-column-gap: 30px;
+    margin : 2% 0;
     & > *{
         grid-row: 2;
     }

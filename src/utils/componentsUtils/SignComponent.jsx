@@ -12,7 +12,6 @@ const buttonChangeLogStyle ={
 }
 
 function SignComponent(props){
-    
     const [linkText, setText] = useState({ text:"You haven't an account ?", buttonText : "sign up" });
     /**
      * allow to know which face we're on
@@ -27,7 +26,6 @@ function SignComponent(props){
     const authCtx = useContext( AuthCtx );
 
     useEffect(()=>{
-
        const fields =  Array.from(document.querySelectorAll('.field'));
        const fieldsLabel = Array.from(document.querySelectorAll('.field-label'));
        

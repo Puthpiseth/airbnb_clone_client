@@ -1,23 +1,30 @@
 import {useState,useEffect, useContext} from 'react';
+import {useHistory} from 'react-router'
 import '../../assets/styleSheets/FormComponent.scss';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import {Calendar} from 'react-date-range'
 import {AppContext} from '../../utils/context/appContext';
 import FormStepSwitcher from '../../utils/componentsUtils/FormStepSwitcher';
+import { add_a_place } from '../../utils/services/host';
 import { Description } from '@material-ui/icons';
+import Button from '@material-ui/core/Button';
 
 function FormComponent(){
 
+    
     const [city, setCity] = useState('');
     const [name, setName] = useState('');
     const [max_guests, setGuests] = useState(1);
     const [rooms, setRooms] = useState(1);
     const [bathrooms, setBathrooms] = useState(1);
-    const [price, setPrice] = useState(10);
+    const [price, setPrice] = useState(16);
+    const [description, setDescription] = useState('');
     const [termsAccepted, setAccept] = useState(false);
-    
+    const [available, setAvailability] = useState('')
     const ctx = useContext(AppContext);
-
+    
+    const history = useHistory();
 
     const handleCity = (e)=> setCity(city => e.target.value );
     const handleName = (e)=> setName(name => e.target.value );
@@ -25,11 +32,11 @@ function FormComponent(){
     const handleRemoveGuests = () => setGuests(guests => guests > 1 ? guests - 1 : guests);
     const handleAddRooms = () => setRooms(rooms => rooms + 1);
     const handleRemoveRooms = () => setRooms(rooms => rooms > 1 ? rooms - 1 : rooms);
+    const [date, setDate] = useState({startDate : new Date(), endDate : new Date()});
+    const [state, setState] = useState(0);
+    const [start, setStart] = useState(null);
+    const [end , setEnd] = useState(null)
     
-    const handleAddBathrooms = () => setBathrooms(bathrooms => bathrooms + 1);
-    const handleRemoveBathRooms = () => setBathrooms(bathrooms => bathrooms > 1 ? bathrooms  - 1 : bathrooms );
-    const checkIfTermsAccepted = (e) => setAccept(accept => e.target.checked?true : false);
-    const handlePriceChanges = (e) => setPrice(price =>  e.target.value);
     
 
     useEffect(()=>{
@@ -50,17 +57,56 @@ function FormComponent(){
         
     },[ctx.step]);
 
-    const handleSubmit = async(e) => {
-        e.preventDefault();
-        if(!termsAccepted)
-            return;
+    useEffect(()=>{
+        if( new Date(start).getTime() > new Date(end).getTime())
+        setDate({startDate : end, endDate : start});
         
-        console.log(city, name, max_guests, rooms, bathrooms, price)
+        else
+        setDate({startDate : start, endDate :end});
+
+    },[start, end]);
+
+    const handleAddBathrooms = () => setBathrooms(bathrooms => bathrooms + 1);
+    const handleRemoveBathRooms = () => setBathrooms(bathrooms => bathrooms > 1 ? bathrooms  - 1 : bathrooms );
+    const checkIfTermsAccepted = (e) => setAccept(accept => e.target.checked?true : false);
+    const handlePriceChanges = (e) => setPrice(price =>  e.target.value);
+    const addDescription = (e) => setDescription(description => e.target.value);
+
+    //select date
+    const handleSelect = (e)=>{
+        setState ( state => state >= 1 ? 0 : state + 1 );
+        state > 0 ? setEnd(end => e) : setStart(start => e);
+    }            
+
+    const handleSubmit = async(e) => {
+
+        e.preventDefault();
+        if(termsAccepted){
+            const place = {
+                city_name : city, 
+                name : name, 
+                max_guests : Number(max_guests), 
+                rooms : Number(rooms), 
+                bathrooms : Number(bathrooms), 
+                price_by_night : Number(price), 
+                description : description,
+                available : `${ end.toDateString() }/${ start.toDateString()}`
+            }
+            try{
+                const response = await add_a_place(place);
+                console.log(response)
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+        
+        console.log(city, name, max_guests, rooms, bathrooms, price, available)
     }
 
     return(
         <form onSubmit = {handleSubmit} >
-            <WhichOne max_guests = {max_guests} rooms = {rooms} bathrooms = {bathrooms} step = {ctx.step} cityCallback = {handleCity} nameCallback = {handleName} addGuestCallback = {handleAddGuests} removeGuestsCallback = {handleRemoveGuests}  addRoomsCallback = {handleAddRooms} removeRoomsCallback = {handleRemoveRooms} addBathroomsCallback = {handleAddBathrooms}  removeBathroomsCallback = {handleRemoveBathRooms} priceCallback = {handlePriceChanges} termsCallback = {checkIfTermsAccepted}/>
+            <WhichOne max_guests = {max_guests} rooms = {rooms} bathrooms = {bathrooms} step = {ctx.step} cityCallback = {handleCity} nameCallback = {handleName} addGuestCallback = {handleAddGuests} removeGuestsCallback = {handleRemoveGuests}  addRoomsCallback = {handleAddRooms} removeRoomsCallback = {handleRemoveRooms} addBathroomsCallback = {handleAddBathrooms}  removeBathroomsCallback = {handleRemoveBathRooms} priceCallback = {handlePriceChanges} termsCallback = {checkIfTermsAccepted} addDescriptionCallback = {addDescription} selectDateCallback = { handleSelect } dateRange = {date}/>
             <FormStepSwitcher/>
         </form>
     )
@@ -79,8 +125,7 @@ function WhichOne(props){
                             callbackAddBathroom = { props.addBathroomsCallback} 
                             callbackRemoveBathroom = {props.removeBathroomsCallback}
                         />
-
-        case 3 : return <Done callback = { props.priceCallback } termsCallback = {props.termsCallback}/>   
+        case 3 : return <Done priceCallback = { props.priceCallback } descriptionCallback ={props.addDescriptionCallback} termsCallback = {props.termsCallback} dateCallback = {props.selectDateCallback} dateRange = {props.dateRange}/>   
         default : return;
     }
 }
@@ -89,8 +134,7 @@ function FirstStep(props){
 
     const ctx = useContext(AppContext);
 
-    const handleNext = (e)=>{
-        const city = document.querySelector('input ').value
+    const handleNext = (e)=> {
         e.preventDefault();
         ctx.nextStep();
     }
@@ -168,18 +212,30 @@ function ThirdStep(props){
 
 function Done(props){
 
+    const [selectionRange, selectRange] = useState({startDate : new Date(), endDate : new Date()})
+
     const handleTermscheked  = () =>{
         if( !document.querySelector('input[type=checkbox]').checked)
-                document.querySelector('p').style.color = 'red';
+            document.querySelector('p').style.color = 'red';
     }
 
+    const handleCalendarActive  = () =>{
+        document.querySelector('.calendar-wrapper').classList.toggle('calendar-wrapper-active');
+    }
     return(
         <div className ="form-step form-step-lastStep">
             <div>
-                <label htmlFor="price">Prix à la nuit</label>
-                <input type="text" id = "price" name = "price_by_night" onChange = { props.callback }/>€
+                <label htmlFor="price" >Prix à la nuit</label>
+                <input type="text" id = "price" name = "price_by_night" onChange = { props.priceCallback } placeholder = "16"/>€
             </div>
-            <input type="text" placeholder = "Description" style = {{ height : "50px" }}/>
+            <input type="text" placeholder = "Description" style = {{ height : "50px" }} onChange={props.descriptionCallback}/>
+            
+            <Button className = "calendar-handler" name="" id="" onClick = { handleCalendarActive }>
+                ajouter une disponibilité
+            </Button>
+
+            <Calendar ranges={ [props.dateRange] } className = 'calendar-wrapper calendar-wrapper-disable' onChange= { props.dateCallback }/>
+           
             <div>   
                 <input type="checkbox" id = "check" onChange = {props.termsCallback}/>
                 <p>

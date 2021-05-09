@@ -1,0 +1,126 @@
+.details-main-wrapper{
+    width :98vw;
+    // height : 100vh;
+
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    &>*{
+        width : 92%;
+    }
+    h1{
+        font-size: 1.5em;
+        //city
+        span{
+            font-size: .6em;
+            color : grey;
+            text-decoration: underline;
+            line-height: 5px;
+
+            .location-icon{
+                max-width: 20px;
+                vertical-align: -0.15cm;
+            }
+        }
+    }
+}
+
+.img-wrapper{
+    height : 50vh;
+    background : black;
+}
+
+.place-info-plus-avatar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom : 0.1px solid lightgrey;
+    & div:first-child{
+        width :75%;
+    }
+    h2{
+        font-size: 1em;
+    }
+    p{
+        font-size: 0.8em;
+        width:100%;
+    }
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 0 3px black;
+    }
+}
+
+.info-card{
+    margin : 3% 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height : 40vh;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.836);
+}
+.info-price{
+    font-size: 1em;
+    text-align: center;
+    height : 30px;
+    width : 90%;
+    border-bottom: 0.05px solid lightgrey;
+    span{
+        color : grey;
+    }
+}
+
+.date-section{
+    display : flex;
+    width : 90%;
+    // border : 1px solid red;
+    height : 30%;
+    border-radius : 30%;
+    padding:0;
+    align-items: center;
+    
+    h4{
+        width : 50%;
+        font-size : 0.7em;
+        height : 45px;
+        border : 0.1px solid rgba(211, 211, 211, 0.904);
+        text-align : center;
+        // padding-top:1%;
+        line-height : 20px;
+        &:first-child{
+            border-radius: 8px 0 0 8px;
+        }
+        &:last-child{
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+        }
+    }
+}
+
+.book-a-place{
+    position :relative;
+    margin-top : 6%;
+    border : 0.5px solid black;
+    background-color: rgb(218,16,104);
+    width : 90%; 
+    height: 35px;
+    border-radius: 8px;
+    overflow: hidden;
+    font-weight: 700;
+    color : white;
+    &::before{
+        position: absolute;
+        content :'';
+        width : 100%;
+        top:0;
+        left:0;
+        height :100%;
+        transition :0.1s;
+    }
+    &:active::before{
+        background-color: rgba(83, 148, 83, 0.192);
+    }
+}

@@ -21,9 +21,30 @@ async function logIn(arr){
     return response;
 }
 
-async function addPlace(place){
-    
-
+async function getLastPlaces(){
+    try{
+        const response = await axios.get('http://localhost:2000/airbnb/places/last');
+        return response.data.data;
+    }
+    catch(err){
+        console.log(err);
+    }
 }
 
-export {signUp, logIn}
+async function getInfo(id){
+    try{
+        const response = await axios.get(`http://localhost:2000/airbnb-clone/place-info/${id}`);
+        return response.data.data;
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
+async function searchByCity(city_name){
+    const response = await axios.post('http://localhost:2000/airbnb-clone/search-by-city',{city_name});
+    return response;
+}
+
+export {signUp, logIn, getLastPlaces, getInfo, searchByCity};
+
