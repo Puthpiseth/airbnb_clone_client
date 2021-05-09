@@ -8,6 +8,7 @@ function AppC(props){
     const [ height, setHeight] = useState(0);
     const [addPlaceFromStep, setStep] = useState(0);
     const [loginDisplay , setDisplay] = useState("none");
+    const [cityResultFetch, setFetchCity] = useState([]);
 
     //if login card displayed we can't scroll homepage anymore 
     const [homePageState, setState] = useState({overflowY : "scroll", height : "100%"});
@@ -37,6 +38,8 @@ function AppC(props){
     const prevStep = ()=> setStep (step => step > 0 ? step -1 : step);
     //Add a place
     const addPlaceItem = (item) => setItem (place => [...place,item]);
+    //Search by city result
+    const fetchByCity = (result) => setFetchCity( items => [...result]);
 
     const value = {
         changeActive : changeActive,
@@ -48,6 +51,8 @@ function AppC(props){
         prevStep : prevStep,
         place : place,
         addPlaceItem : addPlaceItem,
+        fetchByCity : fetchByCity,
+        cityResultFetch : cityResultFetch
     }
     
     return(

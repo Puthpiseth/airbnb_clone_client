@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import { Calendar } from 'react-date-range';
 import '../../assets/styleSheets/SearchBar.scss';
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
 import Location from '../../assets/images/location.svg';
+import {handleChangeAutoComplete} from '../utilsFunctions';
+import { searchByCity } from '../services/utilsRequestFunctions';
+import { AppContext } from '../context/appContext';
 
 function SearchBar(){
 
@@ -20,6 +23,7 @@ function SearchBar(){
     const [fetchComplete, setFetchComplete] = useState([]);
     //changing button that displays calendar
     const [buttonText, setButtonText] = useState('search date');
+    const ctx = useContext(AppContext);
     //Select date range
     const [selectionRange, setSelectionRange] = useState({startDate : new Date(), enDate : new Date()});
 
@@ -39,28 +43,11 @@ function SearchBar(){
             setCalendarDisplay( calendarDisplay => "none" );
             setButtonText( text => "search date");
         }
-    },[active]);
-   
+    },[active]);  
     /**
      * apply dates
      */
-    useEffect(()=>{
-        if( new Date(start).getTime() > new Date(end).getTime()){
-
-            setSelectionRange({startDate : end, endDate : start});
-        }
-        else{
-
-            setSelectionRange({startDate : start, endDate :end});
-        }
-
-        return ()=>{
-            setSelectionRange({startDate : null,endDate : null});
-        }
-    },[start, end])
-
     const handleClickCalendarActive= ()=> setActive(active => !active);
-
      /**
      * select specific field for start and end dates
      * 1 corresponds to start date field
@@ -85,35 +72,37 @@ function SearchBar(){
         setCancelButton( display => "none");
         setAutoComplete( active => false);
     }
-    const handleChanges = (e)=>{
-            if(e.target.value === ""){
-                setFetchComplete(fetchComplete =>[]);
-                return;
-            }
-            const regValue = new RegExp(`${e.target.value}`);
-            const matchArr = fetchResult.filter( el => regValue.test(el));
-            setFetchComplete(fetchComplete =>[...matchArr]);
-        }
-    
-    useEffect(()=>{
+    const handleChanges = (e)=> handleChangeAutoComplete(e, setFetchComplete, fetchResult );
+            
 
-    },[fetchComplete])
+    const handleAutoCompleteClick = (e)=> document.querySelector('.city').value = e.target.textContent;
+
+    const handleSubmit  = async(e) =>{
+        e.preventDefault();
+        console.log('coucou')
+        const city_name = e.target.elements.fetch.value;
+        console.log("city :"+city_name)
+        if(fetch && fetch !== ''){
+            const response = await searchByCity(city_name);
+            ctx.fetchByCity(response.data.data);
+        }
+    } 
 
     return(
         <div className = 'search-bar-wrapper'>
             <div className = 'search-bar-form-wrapper'>
-                <form action="" className = "search-bar-form">
+                <form action="" className = "search-bar-form" onSubmit = { handleSubmit } >
                     <SearchIcon className='search-icon'/>
                     <div>
-                        <input type="text" onFocus = { handleFocus } onBlur = { handleBlur } onChange= { handleChanges }className ="city"/>
+                        <input type="text" name = 'fetch'onFocus = { handleFocus } onBlur = { handleBlur } onChange= { handleChanges }className ="city"/>
                         <input type="text" className = "date"/>
                     </div>
                     <input type="submit"/>
                 </form>
-                <button className='cancel-btn' onClick = { handleClick } style = {{ display : cancelButtonDisplay }}>cancel</button>
+                <button className='cancel-btn' onClick = { handleClick } style = {{ display : cancelButtonDisplay, color: "black" }}>cancel</button>
             </div>
 
-            <AutoComplete active = { autoComplete } results = { fetchComplete }/>
+            <AutoComplete active = { autoComplete } results = { fetchComplete } click = { handleAutoCompleteClick }/>
 
             <div className ="search-bar-date-wrapper" style = {{ display : dateSeachBtnDisplay }}>
                 <button onClick = { handleClickCalendarActive }>{ buttonText }</button>
@@ -141,7 +130,7 @@ function AutoComplete(props){
 
     return(
             <ul style={{ display : display}} className= 'auto-complete-wrapper'>
-                {props.results.map( (el,i) =><li key={i} style = {{ listStyleImage : `url(${Location})` }}>{el}</li>)}
+                {props.results.map( (el,i) =><li onClick = { props.click }key={i} style = {{ listStyleImage : `url(${Location})` }}>{el}</li>)}
             </ul>
     )
 }
