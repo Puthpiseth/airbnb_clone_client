@@ -2,8 +2,9 @@ import './App.css';
 import Home from './pages/home/Home';
 import Hote from './pages/hote/Hote';
 import Details from './pages/details/Details'
-import ModifInfo from './pages/modifPage/ModifInfo';
+import ModifInfo from './pages/hote/ModifInfo';
 import Touriste from './pages/touriste/Touriste';
+
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 // import PrivateRoute from './utils/componentsUtils/PrivateRoute';
@@ -28,7 +29,7 @@ function App() {
               <Route exact path = '/' component = {Home}/>
               <PrivateRoute exact path = '/hote' component ={ Hote } autorization = "hote"/>
               <Route exact path ='/details/:id' component = { Details } />
-              <PrivateRoute  path ='/details/:id/modifier' component = { ModifInfo} autorization="hote"/>
+              <Route  path ='/modif' component = { ModifInfo} />
               <PrivateRoute path = '/touriste' component = {Touriste} autorization = 'touriste' />
             </Switch>
       </Router>

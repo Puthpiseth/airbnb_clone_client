@@ -20,7 +20,6 @@ function Header(){
     const handleClick = ()=> context.changeActive();
 
     useEffect(()=>{
-        
         if(authCtx.response.status === 200){
             setOptionBarView();
         }
@@ -41,22 +40,21 @@ function Header(){
     useEffect(()=>{
         if(role === 'hote'){
             setPath(path => '/hote');
-            document.querySelector('.option-icon-disable.voyage-option-container').classList.add('option-disable');
-            document.querySelector('.bookmarks-option-container').classList.add('option-disable');
-            
+            // document.querySelector('.voyage-option-container').classList.add('option-disable');
+            // document.querySelector('.bookmarks-option-container').classList.add('option-disable');
         }
         else if(role === 'touriste'){
             setPath(path => '/touriste');
-            document.querySelector('.option-icon-disable').style.dispay = "flex";
-            document.querySelector('.bookmarks-option-container').style.dispay = "flex";
+            // document.querySelector('.voyage-option-container').style.dispay = "flex";
+            // document.querySelector('.bookmarks-option-container').style.dispay = "flex";
         }
     },[role])
 
     const setOptionBarView = ()=>{
-        const optionIconTochange = Array.from(document.querySelectorAll('.option-icon-disable'));
-        optionIconTochange.forEach( optionIcon => optionIcon.classList.add('option-icon-active'));
+        // const optionIconTochange = Array.from(document.querySelectorAll('.option-icon-disable'));
+        // optionIconTochange.forEach( optionIcon => optionIcon.classList.add('option-icon-active'));
         
-        // const loginIcon = document.querySelector('.option-icon.login-option').classList.add('option-icon-disable');
+        // document.querySelector('.option-icon.login-option').classList.add('option-icon-disable');
         // console.log(loginIcon)
     }
         
@@ -68,24 +66,26 @@ function Header(){
                 <a href="/">
                     <SearchIcon className="option-icon"/>
                 </a>
-                <a href="/" className = "bookmarks-option-container">
+                <a href="/touriste" className = "bookmarks-option-container">
                     <FavoriteIcon className="option-icon"/>
                 </a>
                 <a href = '#' className ='login-option-container'>
                     <AccountCircleIcon onClick = { handleClick } className="option-icon login "/>
                 </a>
-                <a className="option-icon-disable" href = '#'>
+                {/* <a className="option-icon-disable chat" href = '#'>
                     <ChatBubbleOutlineIcon className="option-icon "/>
-                </a>
-                <a className="option-icon-disable voyage-option-container" href = '#'>
+                </a> */}
+                <a className=" voyage-option-container" href = '#'>
                     <img src={AirbnbIcon} className="option-icon"/>
                 </a>
-                <a className="option-icon-disable" href = {profilePath}>
+                <a className="" href ={profilePath}>
                     <AccountCircleIcon className="option-icon"/>
                 </a>
             </div>
         </header>
     )
 }
-
 export default Header;
+
+// option-icon-disable
+// option-icon-disable

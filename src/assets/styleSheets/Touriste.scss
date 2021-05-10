@@ -1,9 +1,24 @@
 .touriste-option-manager{
     width : 98vw;
     height: 99vh;
-    border : 3px solid red;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    &>*{
+        // max-width: 70%;
+    }
 }
 
 .upper-logo-block{
-    background : 2px solid blue;
+    background : 2px rgb(161, 154, 154);
+    width : 100vw;
+    height:10vh;
+    display:flex;
+    align-items: center;
+}
+h2{
+    text-align : left;
+    font-size: 1em;
+    padding: 3% 2%;
+    border-bottom: 0.1px solid lightgrey;
 }

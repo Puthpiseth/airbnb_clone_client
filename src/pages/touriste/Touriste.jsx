@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react';
-import PlaceWrapper from '../../utils/componentsUtils/PlacesWrapper';
+import PlacesWrapper from '../../utils/componentsUtils/PlacesWrapper';
 import {places_booked_list }from '../../utils/services/tourist';
 import '../../assets/styleSheets/Touriste.scss';
 import airbnbIcon from '../../assets/images/airbnb.svg';
@@ -16,19 +16,21 @@ function Touriste(props){
             console.log(token)
 
             const items = await places_booked_list(token);
-            setItems(items => [...items]);
-            console.log(items)
+            setItems(item => items.data.response);
+            console.log(bookedItems);
         }
         func();
-    },[])
+    },[bookedItems])
     
     return(
 
         <div className = 'touriste-option-manager'>
-
             <div className = "upper-logo-block">
                 <img src = {airbnbIcon}/>
-                <PlaceWrapper history = {props.history} places = { bookedItems }img={home} />
+            </div>
+            <div className = "Reservation">
+                <h2>Vos dernières réservations</h2>
+                <PlacesWrapper history = {props.history} places = { bookedItems }img={home} />
             </div>
         </div>
     )

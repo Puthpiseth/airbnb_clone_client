@@ -2,5 +2,12 @@
     overflow-x: hidden;
     display:flex;
     flex-direction: column;
+    
     // border : 3px solid red;
+}
+
+.section-title{
+    font-size: 1rem;
+    color : grey;
+    border-bottom : 0.1px solid lightgrey
 }

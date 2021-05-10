@@ -34,16 +34,21 @@ async function edit_place(arr, place_id){
 }
 
 async function remove_a_place(place_id){
-    const token = JSON.parse(localStorage.getItem('auth')).token;
+    const token = JSON.parse(localStorage.getItem('auth')).token
     const config = {
         token : token,
         place_id: place_id
     }
-    
-    console.log(config)
-    console.log(config)
-    return await axios.delete('http://localhost:2000/airbnb-clone/places/delete',{data : config });
-    
+    console.log("heyyyy")
+    return await axios.delete('http://localhost:2000/airbnb-clone/places/delete',config);
 }
-export {add_a_place, edit_place, remove_a_place};
+
+async function get_all_places(token){
+
+    const user = {
+        token : token
+    }
+    return axios.post(`http://localhost:2000/airbnb-clone/places/list`, user)
+}
+export {add_a_place, edit_place, remove_a_place, get_all_places};
 

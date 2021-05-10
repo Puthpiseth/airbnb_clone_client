@@ -8,6 +8,7 @@ import Location from '../../assets/images/location.svg';
 import {handleChangeAutoComplete} from '../utilsFunctions';
 import { searchByCity } from '../services/utilsRequestFunctions';
 import { AppContext } from '../context/appContext';
+import {search_by_date} from '../services/tourist';
 
 function SearchBar(){
     const [calendarDisplay, setCalendarDisplay] = useState('none');
@@ -28,8 +29,6 @@ function SearchBar(){
     //Select date range
     const [selectionRange, setSelectionRange] = useState({startDate : new Date(), enDate : new Date()});
 
-   
-
     useEffect(()=>{
         const arr = ["baba", "babo", "bibi", "bobo", "bobi","koko","tato", "tito"];
         setResult(result => [...arr]);
@@ -47,6 +46,18 @@ function SearchBar(){
             setButtonText( text => "search date");
         }
     },[active]);  
+
+    useEffect(()=>{
+        if(start && end){
+            document.querySelector('.city').value = `${new Date(start).toDateString()}/${new Date(end).toDateString()}`;
+        }
+        if( new Date(start).getTime() > new Date(end).getTime())
+            setSelectionRange({startDate : end, endDate : start});
+        
+        else
+            setSelectionRange({startDate : start, endDate :end});
+
+    },[start, end]);
     /**
      * apply dates
      */
@@ -75,19 +86,34 @@ function SearchBar(){
         setCancelButton( display => "none");
         setAutoComplete( active => false);
     }
-    const handleChanges = (e)=> handleChangeAutoComplete(e, setFetchComplete, fetchResult );
-            
+
+    const handleChanges = (e)=>{
+        handleChangeAutoComplete(e, setFetchComplete, fetchResult );
+        ctx.displayResultBlock("none")
+    } 
 
     const handleAutoCompleteClick = (e)=> document.querySelector('.city').value = e.target.textContent;
 
     const handleSubmit  = async(e) =>{
         e.preventDefault();
-        console.log('coucou')
-        const city_name = e.target.elements.fetch.value;
-        console.log("city :"+city_name)
-        if(fetch && fetch !== ''){
-            const response = await searchByCity(city_name);
+        let response = [];
+
+        if(start && end && Date(start) && Date(end)){
+            const date = e.target.elements.fetch.value;
+            response = await search_by_date(date)
+            ctx.displayResultBlock("block");
             ctx.fetchByCity(response.data.data);
+            console.log(response)
+        }
+        else{
+            ctx.displayResultBlock("block");
+            const city_name = e.target.elements.fetch.value;
+            ctx.getCityName(city_name);
+            
+            if(fetch && fetch !== ''){
+                const response = await searchByCity(city_name);
+                ctx.fetchByCity(response.data.data);
+            }
         }
     } 
 
@@ -98,7 +124,7 @@ function SearchBar(){
                     <SearchIcon className='search-icon'/>
                     <div>
                         <input type="text" name = 'fetch'onFocus = { handleFocus } onBlur = { handleBlur } onChange= { handleChanges }className ="city"/>
-                        <input type="text" className = "date"/>
+                        {/* <input type="text" className = "date"/> */}
                     </div>
                     <input type="submit"/>
                 </form>
