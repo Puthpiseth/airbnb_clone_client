@@ -9,10 +9,11 @@ function AppC(props){
     const [addPlaceFromStep, setStep] = useState(0);
     const [loginDisplay , setDisplay] = useState("none");
     const [cityResultFetch, setFetchCity] = useState([]);
-
+    const [cityName, setCityName] = useState('');
     //if login card displayed we can't scroll homepage anymore 
     const [homePageState, setState] = useState({overflowY : "scroll", height : "100%"});
     const [place, setItem] = useState([]);
+    const [displayResult, setDisplayResult] = useState("none");
     
     useEffect(()=>{
         if(active > 0){
@@ -27,10 +28,7 @@ function AppC(props){
         }
     },[active]);
 
-    useEffect(()=>{
-        // console.log(place)
-    }, [place])
-
+    const getCityName = (name) => setCityName( city => name );
     const changeActive = () => setActive( active => active < 1 ? active + 1 : 0 );
     //go to the previous step to add a place form step in host page
     const nextStep   = () => setStep(step => step < 3 ? step +1 : step);
@@ -40,6 +38,8 @@ function AppC(props){
     const addPlaceItem = (item) => setItem (place => [...place,item]);
     //Search by city result
     const fetchByCity = (result) => setFetchCity( items => [...result]);
+
+    const displayResultBlock = (val) => setDisplayResult( display => val );
 
     const value = {
         changeActive : changeActive,
@@ -52,7 +52,11 @@ function AppC(props){
         place : place,
         addPlaceItem : addPlaceItem,
         fetchByCity : fetchByCity,
-        cityResultFetch : cityResultFetch
+        cityResultFetch : cityResultFetch,
+        getCityName : getCityName,
+        cityName: cityName, 
+        displayResultBlock : displayResultBlock,
+        displayResult : displayResult
     }
     
     return(

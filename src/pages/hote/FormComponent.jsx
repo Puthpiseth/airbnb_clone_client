@@ -36,8 +36,6 @@ function FormComponent(){
     const [state, setState] = useState(0);
     const [start, setStart] = useState(null);
     const [end , setEnd] = useState(null)
-    
-    
 
     useEffect(()=>{
         switch(ctx.step){
@@ -90,7 +88,7 @@ function FormComponent(){
                 bathrooms : Number(bathrooms), 
                 price_by_night : Number(price), 
                 description : description,
-                available : `${ end.toDateString() }/${ start.toDateString()}`
+                available : `${ start.toDateString()}/${ end.toDateString() }`
             }
             try{
                 const response = await add_a_place(place);
@@ -100,8 +98,6 @@ function FormComponent(){
                 console.log(err);
             }
         }
-        
-        console.log(city, name, max_guests, rooms, bathrooms, price, available)
     }
 
     return(
@@ -131,7 +127,11 @@ function WhichOne(props){
 }
 
 function FirstStep(props){
-
+    let token = JSON.parse(localStorage.getItem('auth')).token;
+    token = token.split('.')[1]
+    const buffer = Buffer.from(token,'base64');
+    const str = buffer.toString('ascii');
+    const user = JSON.parse(str);
     const ctx = useContext(AppContext);
 
     const handleNext = (e)=> {
@@ -142,7 +142,8 @@ function FirstStep(props){
     return(
         <div className ="form-step form-step0">
              <h1>
-                Bonjour {props.name},
+                Bonjour     
+                <span style = {{color : 'rgb(255,63 ,55)', marginLeft : "1%"}}>{user.first_name},</span>
                 <br/>
                 Nous allons vous aidez à publier
                 <br/>
@@ -154,6 +155,7 @@ function FirstStep(props){
             </h2>
             <input type="text" name = 'city_name' placeholder = "city" onChange = {props.callback}/>
             <button onClick = { handleNext }>continuer</button>
+            
         </div>
     )
 }

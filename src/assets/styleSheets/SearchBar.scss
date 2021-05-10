@@ -15,7 +15,7 @@
     }
 
     &-form-wrapper{
-        width:75%;
+        width:78%;
         height : 40px;
         display: flex;
         .cancel-btn{
@@ -64,13 +64,6 @@
                 outline : none;
                 padding:0;
                 border:none;
-
-                &:first-child{
-                }
-                &:last-child{
-                    display: none;
-                   border-left : 0.2px solid rgba(0, 0, 0, 0.534);
-                }
             }
         }
 
