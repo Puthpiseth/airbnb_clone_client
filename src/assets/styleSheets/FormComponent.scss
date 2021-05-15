@@ -222,4 +222,59 @@
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .form-step {
+
+        &0{
+            h2{
+                font-size: 1.2rem;
+            }
+    
+            input{
+                height : 40px;
+                font-size: 1.1em;
+            }
+    
+            button{
+                height : 35px;
+                font-size: 1.02em;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        &1{
+            h2{
+                font-size: 1.2em;
+            }
+            select{
+                height : 50px;
+                font-size: 1em;
+            }
+        }
+
+        &-lastStep{
+            
+            div:first-child{
+                width: 40%;
+                font-size: 1.3em;
+            }
+    
+            div + input{
+                width : 50%;
+            }
+        }
+
+        .termOfCondition {
+            width: 50%;
+            line-height: 1.2em;
+
+            p{
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+
 
