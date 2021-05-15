@@ -2,17 +2,30 @@
     display:none;
     position : absolute;
     top : 90vh;
-    width : 90%;
-    align-self : center;
+    width : 80%;
     justify-content: space-between;
+    border: 1px solid red;
 
     &-active{
         display: flex;
+        position: absolute;
+        left: 10%;
     }
 }
 
 .next{
     &-disable{
-        visibility: hidden;
+        visibility: hidden;        
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .step-switcher {
+        position: absoute;
+        left: 10%;
+
+        &-active {
+            width : 80%;
+        }
     }
 }

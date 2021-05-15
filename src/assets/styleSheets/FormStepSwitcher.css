@@ -2,22 +2,32 @@
   display: none;
   position: absolute;
   top: 90vh;
-  width: 90%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  width: 80%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border: 1px solid red;
 }
 
 .step-switcher-active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: absolute;
+  left: 10%;
 }
 
 .next-disable {
   visibility: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .step-switcher {
+    position: absoute;
+    left: 10%;
+  }
+  .step-switcher-active {
+    width: 80%;
+  }
 }
 /*# sourceMappingURL=FormStepSwitcher.css.map */
