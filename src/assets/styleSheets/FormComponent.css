@@ -300,4 +300,42 @@
     font-size: 1.05em;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .form-step0 h2 {
+    font-size: 1.2rem;
+  }
+  .form-step0 input {
+    height: 40px;
+    font-size: 1.1em;
+  }
+  .form-step0 button {
+    height: 35px;
+    font-size: 1.02em;
+  }
+  .form-step0 button:hover {
+    cursor: pointer;
+  }
+  .form-step1 h2 {
+    font-size: 1.2em;
+  }
+  .form-step1 select {
+    height: 50px;
+    font-size: 1em;
+  }
+  .form-step-lastStep div:first-child {
+    width: 40%;
+    font-size: 1.3em;
+  }
+  .form-step-lastStep div + input {
+    width: 50%;
+  }
+  .form-step .termOfCondition {
+    width: 50%;
+    line-height: 1.2em;
+  }
+  .form-step .termOfCondition p {
+    font-size: 1.1em;
+  }
+}
 /*# sourceMappingURL=FormComponent.css.map */
