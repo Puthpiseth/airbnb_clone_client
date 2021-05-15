@@ -117,6 +117,8 @@
 .form-step-lastStep div:first-child label {
   width: 30%;
   padding: 5%;
+  font-size: 0.9em;
+  border: none;
 }
 
 .form-step-lastStep div:first-child input {
@@ -126,22 +128,22 @@
 }
 
 .form-step-lastStep div:first-child input::-webkit-input-placeholder {
-  font-size: 1em;
+  font-size: 1.2em;
   color: lightgrey;
 }
 
 .form-step-lastStep div:first-child input:-ms-input-placeholder {
-  font-size: 1em;
+  font-size: 1.2em;
   color: lightgrey;
 }
 
 .form-step-lastStep div:first-child input::-ms-input-placeholder {
-  font-size: 1em;
+  font-size: 1.2em;
   color: lightgrey;
 }
 
 .form-step-lastStep div:first-child input::placeholder {
-  font-size: 1em;
+  font-size: 1.2em;
   color: lightgrey;
 }
 
@@ -191,10 +193,6 @@
           align-items: baseline;
 }
 
-.form-step-lastStep div:nth-child(3) input {
-  border: 2px solid;
-}
-
 .form-step-lastStep div:nth-child(3) p {
   display: inline;
   font-size: .8rem;
@@ -215,7 +213,7 @@
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  height: 56.4vh;
+  height: 56vh;
   z-index: 10;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -250,6 +248,28 @@
 
 .form-step-lastStep .calendar-wrapper > *:nth-child(n) > * {
   display: block;
+}
+
+.form-step-lastStep .termOfCondition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: justify;
+  width: 90%;
+}
+
+.form-step-lastStep .termOfCondition p {
+  font-size: .8em;
+  margin-left: 10px;
 }
 
 .form-step-lastStep input[type='submit'] {
