@@ -5,7 +5,7 @@
 
     &0{
         h2{
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             span{
                 font-size: 1rem;
             }
@@ -21,8 +21,12 @@
     }
 
     &1{
+        h2{
+            width: 100%;
+        }
         select{
             height : 45px;
+            width: 105%;
             border-radius : 8px;
             margin-top : 10%;
         }
@@ -32,8 +36,8 @@
         .counter{
             margin : 5% 0;
             display: flex;
-            // border : 2px solid red;
             justify-content: center;
+
             &>*{
                 margin : 3%;
             }
@@ -41,15 +45,15 @@
             span{
                 width:50%;
             }
+
             div{
                 display: flex;
                 align-items : center;
-                // border : 1px solid;
                 width : 22%;
                 justify-content: space-between;
 
                 .action-icon{
-                        fill : rgba(0, 0, 0, 0.733);
+                    fill : rgba(0, 0, 0, 0.733);
                 }
                 .count{
                     width : 10%;
@@ -68,15 +72,19 @@
         align-items: center;
 
         &>*{
-            // position :relative;
-            // top: 0;
             margin : 2%;
         }
         div:first-child{
-            width:80%;
+            width: 85%;
             // border : 2px solid yellow;
             display : flex;
-            justify-content: space-between;
+            justify-content: space-around;
+           
+            label{
+                width: 30%;
+                padding: 5%;
+            }
+
             input{
                 width : 30%;
                 border-radius: 5px;
@@ -96,16 +104,14 @@
                 margin-left : 10%;
                 font-size : 1.2em;
                 font-style: italic;
-                color : lightgrey
+                color : lightgrey;
             }
         }
+
         div:nth-child(3){
             display: flex;
             width:88%;
             margin-top: 3%;
-            // justify-content: flex-start;
-            // border:2px solid green;
-            // border : 2px solid green;
             height : 30vh;
             align-items: baseline;
             input{
@@ -114,7 +120,6 @@
             p{
                 display: inline;
                 font-size: .8rem;
-                // border: 3px solid red;
             }
         }
         //open/close calendar
@@ -122,8 +127,9 @@
             width : 80%;
             padding :2%;
             margin :3% 0;
-            height: 30px;
+            height: 50px;
             border : 0.1px solid lightgrey;
+            // border: 3px solid red;
         }
         .calendar-wrapper{
             border : 0.1px solid lightgrey;
@@ -131,7 +137,6 @@
             display: flex;
             position : relative;
             height : 56.4vh;
-            // justify-content: center;
             z-index:10;
             align-items: center;
             &-disable{

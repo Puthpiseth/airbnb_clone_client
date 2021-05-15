@@ -1,0 +1,144 @@
+.main-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 99vw;
+}
+
+.wrapper > * {
+  width: 94%;
+}
+
+.step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.step span:nth-child(2) {
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.step-1 > span:last-child {
+  font-size: 1em;
+}
+
+.step-1 span:nth-child(2) {
+  cursor: pointer;
+}
+
+.step-2 {
+  border-bottom: 0.1px solid lightgrey;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: row !important;
+      -ms-flex: row !important;
+          flex: row !important;
+}
+
+.step-2 input {
+  margin: 5%;
+  height: 35px;
+  width: 90%;
+  border: none;
+  border-bottom: 0.1px solid lightgrey;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.step-2 input:nth-child(12) {
+  height: 150px;
+}
+
+.step-3 {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 0.1px solid lightgrey;
+  padding: 8% 0;
+}
+
+.main-options-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 98%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 0.04px solid lightgray;
+}
+
+button {
+  background-color: white;
+  max-width: 200px;
+  border: 0.2px solid;
+  border-radius: 4px;
+}
+
+label {
+  padding-top: 10%;
+  font-size: .8rem;
+  width: 50px;
+  height: 2px;
+  border-top: 0.1px solid lightgray;
+}
+
+.validate-modif {
+  margin-top: 3%;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  border: 0.1px solid white;
+}
+
+input.validate-modif {
+  margin: 100px 4%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+input[type='submit']:nth-child(n) {
+  color: #128488;
+}
+/*# sourceMappingURL=ModifInfo.css.map */
