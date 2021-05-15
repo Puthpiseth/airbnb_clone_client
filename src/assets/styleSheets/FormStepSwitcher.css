@@ -1,0 +1,23 @@
+.step-switcher {
+  display: none;
+  position: absolute;
+  top: 90vh;
+  width: 90%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.step-switcher-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.next-disable {
+  visibility: hidden;
+}
+/*# sourceMappingURL=FormStepSwitcher.css.map */
