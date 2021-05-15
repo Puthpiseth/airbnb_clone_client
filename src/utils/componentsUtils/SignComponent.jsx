@@ -44,12 +44,12 @@ function SignComponent(props){
 
     useEffect(()=>{
         if(cardFace === 0){
-            setText(text =>({text:"haven't an account ?", buttonText : "sign up" }));
+            setText(text =>({text:"You already have an account  ", buttonText : "Sign up" }));
             setDisplay(display => "block");
         }
 
         else{
-            setText(text =>({text:"already have an account ?", buttonText : "Log in" }))
+            setText(text =>({text:"You don't have an account ? ", buttonText : "Login" }))
             setDisplay(display => "none");
         }
 
@@ -82,15 +82,15 @@ function SignComponent(props){
                 </div>
                 <div style = { { width:"75%" } } className = 'fields'>
                     <input style = {{ display : displayFields }} className = "field" type="text" id = "first-name"  name="first_name" />
-                    <label style = {{ display : displayFields }} className = "field-label"htmlFor="first-name">enter your first-name</label>
+                    <label style = {{ display : displayFields }} className = "field-label"htmlFor="first-name">Enter your first-name</label>
                     <input style = {{ display : displayFields }} className = "field" type="text" id = "last-name" name="last_name" />
-                    <label style = {{ display : displayFields }} className = "field-label"htmlFor="last-name">enter your last-name</label>
+                    <label style = {{ display : displayFields }} className = "field-label"htmlFor="last-name">Enter your last-name</label>
                     <input className = "field" type="text" id = "email"  name="email" />
-                    <label className = "field-label"htmlFor="email">enter your email</label>
+                    <label className = "field-label"htmlFor="email">Enter your email</label>
                     <input style = {{ display : displayFields }} className = "field" type="text" id = "role"  name="role" />
-                    <label style = {{ display : displayFields }} className = "field-label"htmlFor="role">enter your role</label>
+                    <label style = {{ display : displayFields }} className = "field-label"htmlFor="role">Enter your role</label>
                     <input className = "field" type="text" id = "password" name="password" />
-                    <label className = "field-label" htmlFor="passWord">enter your password</label>
+                    <label className = "field-label" htmlFor="passWord">Enter your password</label>
                 </div>
                 <input type="submit" />
                 {/* <p> You already have an account ?<a href="#" alt=""> sign in</a></p> */}
