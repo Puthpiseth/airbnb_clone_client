@@ -86,7 +86,7 @@ function SignComponent(props){
                     <input style = {{ display : displayFields }} className = "field" type="text" id = "last-name" name="last_name" />
                     <label style = {{ display : displayFields }} className = "field-label"htmlFor="last-name">Enter your last-name</label>
                     <input className = "field" type="text" id = "email"  name="email" />
-                    <label className = "field-label"htmlFor="email">Enter your email</label>
+                    <label className = "field-label" htmlFor="email">Enter your email</label>
                     <input style = {{ display : displayFields }} className = "field" type="text" id = "role"  name="role" />
                     <label style = {{ display : displayFields }} className = "field-label"htmlFor="role">Enter your role</label>
                     <input className = "field" type="text" id = "password" name="password" />
@@ -97,7 +97,7 @@ function SignComponent(props){
                 <p>
                     { linkText.text }
                     <span onClick= { handleClick } style = { buttonChangeLogStyle }>
-                         { linkText.buttonText } 
+                        { linkText.buttonText } 
                     </span>
                 </p>
             </form>
