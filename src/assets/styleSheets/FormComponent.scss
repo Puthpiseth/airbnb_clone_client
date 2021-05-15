@@ -190,6 +190,36 @@
     
 }
 
+@media screen and (min-width: 600px) {
+    .form-step {
 
+        &-lastStep{
+            
+            div:first-child{
+                width: 40%;
+            }
+    
+            div + input{
+                width : 60%;
+            }
+        }
+
+        .termOfCondition {
+            width: 60%;
+            line-height: 1.1em;
+            p{
+                font-size: .9em;
+                margin-left: 10px;
+            }
+        }
+        
+        input[type='submit']{
+            width : 90px;
+            height: 4vh;
+            font-size: 1.05em;
+            
+        }
+    }
+}
 
 
