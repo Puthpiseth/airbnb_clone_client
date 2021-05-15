@@ -10,9 +10,11 @@
                 font-size: 1rem;
             }
         }
+
         input{
             height : 30px;
         }
+
         button{
             align-self: flex-end;
             margin-top : 2%;
@@ -76,13 +78,14 @@
         }
         div:first-child{
             width: 85%;
-            // border : 2px solid yellow;
             display : flex;
             justify-content: space-around;
-           
+
             label{
                 width: 30%;
                 padding: 5%;
+                font-size : 0.9em;
+                border: none;
             }
 
             input{
@@ -90,7 +93,7 @@
                 border-radius: 5px;
                 border : 0.1px solid lightgrey;
                 &::placeholder{
-                    font-size : 1em;
+                    font-size : 1.2em;
                     color : lightgrey;
                 }
             }
@@ -114,14 +117,13 @@
             margin-top: 3%;
             height : 30vh;
             align-items: baseline;
-            input{
-                border : 2px solid;
-            }
+           
             p{
                 display: inline;
                 font-size: .8rem;
             }
         }
+
         //open/close calendar
         .calendar-handler{
             width : 80%;
@@ -129,19 +131,21 @@
             margin :3% 0;
             height: 50px;
             border : 0.1px solid lightgrey;
-            // border: 3px solid red;
         }
+
         .calendar-wrapper{
             border : 0.1px solid lightgrey;
             width : 100%;
             display: flex;
             position : relative;
-            height : 56.4vh;
+            height : 56vh;
             z-index:10;
             align-items: center;
+
             &-disable{
                 display : none;
             }
+
             &-active{
                 display : block;
             }
@@ -152,17 +156,30 @@
                 align-items: center;
                 justify-content: space-between;
             }
+
             &>*:nth-child(n){
-                // height: 100%;
-                width:100%;
+                width: 100%;
                 margin:0;
 
                 &>*{
                     display: block;
-                    // width:100%;
                 }
             }
         }
+
+        .termOfCondition {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            text-align: justify;
+            width: 90%;
+            p{
+                font-size: .8em;
+                margin-left: 10px;
+            }
+        }
+
         input[type='submit']{
             width : 80px;
             height : 30px;

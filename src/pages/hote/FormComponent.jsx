@@ -228,7 +228,8 @@ function Done(props){
         <div className ="form-step form-step-lastStep">
             <div>
                 <label htmlFor="price" >Prix à la nuit</label>
-                <input type="text" id = "price" name = "price_by_night" onChange = { props.priceCallback } placeholder = "16"/>€
+                <input type="text" id = "price" name = "price_by_night" onChange = { props.priceCallback } placeholder = "16"/>
+                <p>€</p>
             </div>
             <input type="text" placeholder = "Description" style = {{ height : "50px" }} onChange={props.descriptionCallback}/>
             
@@ -238,13 +239,13 @@ function Done(props){
 
             <Calendar ranges={ [props.dateRange] } className = 'calendar-wrapper calendar-wrapper-disable' onChange= { props.dateCallback }/>
            
-            <div>   
+            <div className="termOfCondition">   
                 <input type="checkbox" id = "check" onChange = {props.termsCallback}/>
                 <p>
                     En plaçant votre demande dans le formulaire de demande, vous confirmez avoir pris connaissance et accepté les Termes et Conditions Générales. 
                 </p>
             </div>
-            <label htmlFor="check"></label>
+            {/* <label htmlFor="check"></label> */}
             <input type = "submit" value = "valider" onClick = { handleTermscheked }/>
         </div>
     )
