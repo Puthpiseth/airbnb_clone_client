@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+## Airbnb-clone
+C'est un projet d'équipe dans le cadre de formation à Simplon. Développer les principales features de Airbnb avec la MERN stack (MySQL, Express, React, Node).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <img src="https://img.shields.io/github/repo-size/Puthpiseth/airbnb_clone_client" />
+    <img src="https://img.shields.io/github/issues/Puthpiseth/airbnb_clone_client" />
+    <img src="https://img.shields.io/github/last-commit/Puthpiseth/airbnb_clone_client" />
+    <img src="https://img.shields.io/badge/MySQL-blue" />
+    <img src="https://img.shields.io/badge/Express-red" />
+    <img src="https://img.shields.io/badge/React-blue" />
+    <img src="https://img.shields.io/badge/Node-red" />
+    <img src="https://img.shields.io/badge/Sass-blue" />
+    
+    
 
-## Available Scripts
+### User Stories
 
-In the project directory, you can run:
+- ETQ visiteur, je veux voir la liste des derniers appartements ou maisons mis en location quand j'arrive sur la homepage
+- ETQ visiteur, je veux consulter la fiche d'un appartement ou d'une maison
+- ETQ visiteur, je veux rechercher un appartement ou une maison disponible dans une ville donnée
+- ETQ visiteur, je veux m'inscrire comme touriste, afin de louer un appartement ou une maison pour mes prochaines vacances
+- ETQ visiteur, je veux m'inscrire comme hôte, afin de proposer mes appartements ou mes maisons en location courte durée
+- ETQ visiteur, je veux me connecter à l'application avec mon compte "Hôte" ou mon compte "Touriste"
+- ETQ hôte, je veux ajouter un appartement ou une maison, afin de le proposer à la location
+- ETQ hôte, je veux consulter la liste des appartements ou des maisons que je propose à la location
+- ETQ hôte, je veux consulter la fiche d'un appartement ou d'une maison que je propose à la location
+- ETQ hôte, je veux modifier les informations concernant un appartement ou une maison que je propose à la location
+- ETQ touriste, je veux réserver un appartement ou une maison
+- ETQ touriste, je veux afficher la liste des réservations que j'ai faites
+- ETQ touriste, je veux annuler une réservation
+- ETQ hôte, je veux afficher la liste des réservations de mes appartements ou de mes maisons que je propose à la location
+- ETQ visiteur, je veux rechercher un appartement ou une maison disponible entre deux dates
+- ETQ hôte, je veux supprimer un appartement ou une maison que je ne souhaite plus proposer à la location
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Instructions
+- Forker repositories (airbnb_clone_client et airBnB-clone-api) et les clôner dans votre machine
+- Installer Nodejs si vous ne l'avez pas
+- Créer une base de données en prennant le fichier "airBnB_database.sql" dans le repo (airBnB-clone-api) dans MySQL
+- Créer un fichier (.env) en mettant :
 
-### `npm test`
+        HOST = localhost
+        USER = root
+        PASSWORD = mot de passe de votre base de données
+        DATABASE = nom de votre base de données
+        SECRET= votre propre mot de passe
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Installer les dépendances pour airbnb_clone_client et airBnB-clone-api
 
-### `npm run build`
+        npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Exécuter une application pour client-side/front-end (port 3000)
+        
+        npm start
+- Exécuter une application pour server-side/back-end (port 2000 ou bien vous pouvez changer le port)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        npm run watch
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Live App 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Contributeurs
+Charles EKOMIE Github: https://github.com/charade 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Puthpiseth TUN Github: https://github.com/Puthpiseth
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Jerome ELIEZER VANEROT Github: https://github.com/eliezer-web
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
