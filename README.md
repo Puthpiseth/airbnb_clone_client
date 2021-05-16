@@ -1,5 +1,5 @@
 ## Airbnb-clone
-C'est un projet d'équipe dans le cadre de formation à Simplon. Développer les principales features de Airbnb avec la MERN stack (MySQL, Express, React, Node). Cette application est responsive et adatable à différents types d'écrans.
+C'est un projet d'équipe dans le cadre de formation à Simplon. Développer les principales features de Airbnb avec la MERN stack (MySQL, Express, React, Node). Cette application est responsive et adaptable à différents types d'écrans.
 
 <p align="center">
     <img src="https://img.shields.io/github/repo-size/Puthpiseth/airbnb_clone_client" />
