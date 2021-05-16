@@ -89,7 +89,7 @@ function SignComponent(props){
                     <label className = "field-label" htmlFor="email">Enter your email</label>
                     <input style = {{ display : displayFields }} className = "field" type="text" id = "role"  name="role" />
                     <label style = {{ display : displayFields }} className = "field-label"htmlFor="role">Enter your role</label>
-                    <input className = "field" type="text" id = "password" name="password" />
+                    <input className = "field" type="password" id = "password" name="password" />
                     <label className = "field-label" htmlFor="passWord">Enter your password</label>
                 </div>
                 <input type="submit" />
