@@ -24,14 +24,15 @@
     }
 }
 
+// section for background-image
 .img-wrapper{
-    height : 50vh;
+    height : 30vh;
     background-image: url('../../assets/images/home2.jpg');
     background-size: cover;
     background-position: center;
-    height: 30vh;
 }
 
+// section for place info and avatar
 .place-info-plus-avatar{
     display: flex;
     justify-content: space-between;
@@ -58,6 +59,7 @@
     }
 }
 
+// section for price and date info
 .info-card{
     margin : 3% 0;
     border-radius: 5px;
@@ -81,7 +83,6 @@
 .date-section{
     display : flex;
     width : 90%;
-    // border : 1px solid red;
     height : 30%;
     border-radius : 30%;
     padding:0;
@@ -93,7 +94,6 @@
         height : 45px;
         border : 0.1px solid rgba(211, 211, 211, 0.904);
         text-align : center;
-        // padding-top:1%;
         line-height : 20px;
         &:first-child{
             border-radius: 8px 0 0 8px;
@@ -127,5 +127,16 @@
     }
     &:active::before{
         background-color: rgba(83, 148, 83, 0.192);
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+    .img-wrapper{
+        height : 70vh;
+    }
+
+    .info-card{
+        height : 50vh;
     }
 }

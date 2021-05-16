@@ -33,11 +33,10 @@
 }
 
 .img-wrapper {
-  height: 50vh;
+  height: 30vh;
   background-image: url("../../assets/images/home2.jpg");
   background-size: cover;
   background-position: center;
-  height: 30vh;
 }
 
 .place-info-plus-avatar {
@@ -164,5 +163,14 @@
 
 .book-a-place:active::before {
   background-color: rgba(83, 148, 83, 0.192);
+}
+
+@media screen and (min-width: 900px) {
+  .img-wrapper {
+    height: 70vh;
+  }
+  .info-card {
+    height: 50vh;
+  }
 }
 /*# sourceMappingURL=details.css.map */
