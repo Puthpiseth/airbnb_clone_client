@@ -104,7 +104,7 @@ function Details(props){
                     <h2>Hote : {info.first_name}</h2>
                     <p>{info.max_guests} voyageurs• {info.rooms}lit(s)• {info.bathrooms} salles de bains</p>
                 </div>
-                <img src="" alt="" />
+                <img src={props.img} alt="" />
             </div>
             
             <div className = "info-card">

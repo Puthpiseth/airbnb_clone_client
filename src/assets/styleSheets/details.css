@@ -34,7 +34,10 @@
 
 .img-wrapper {
   height: 50vh;
-  background: black;
+  background-image: url("../../assets/images/home2.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 30vh;
 }
 
 .place-info-plus-avatar {
@@ -69,6 +72,9 @@
   border-radius: 50%;
   -webkit-box-shadow: 0 0 3px black;
           box-shadow: 0 0 3px black;
+  background-image: url("../../assets/images/Piseth.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .info-card {

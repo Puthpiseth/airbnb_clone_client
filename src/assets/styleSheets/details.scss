@@ -1,10 +1,9 @@
 .details-main-wrapper{
     width :98vw;
-    // height : 100vh;
-
     display: flex;
     flex-direction : column;
     align-items: center;
+
     &>*{
         width : 92%;
     }
@@ -27,7 +26,10 @@
 
 .img-wrapper{
     height : 50vh;
-    background : black;
+    background-image: url('../../assets/images/home2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
 }
 
 .place-info-plus-avatar{
@@ -50,6 +52,9 @@
         height: 40px;
         border-radius: 50%;
         box-shadow: 0 0 3px black;
+        background-image: url('../../assets/images/Piseth.jpg');
+        background-size: cover;
+        background-position: center;
     }
 }
 
