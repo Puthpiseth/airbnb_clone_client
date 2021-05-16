@@ -18,7 +18,7 @@ function Home(props) {
     
     useEffect(()=>{
         
-         const fetch = async() =>{
+        const fetch = async() =>{
             const lastPlaces = await getLastPlaces();
             setPlaceArr( arr => [...lastPlaces]);
 

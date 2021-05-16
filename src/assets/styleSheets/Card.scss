@@ -24,6 +24,12 @@
         max-width: 300px;
         border-radius: 10px;
         box-shadow: 0 0 2px black;
+        transform: translate 100ms ease-in;
+        cursor: pointer;
+
+        &:hover{
+            transform: scale(1.05);
+        }
     }
     p {
         line-height: 25px;
