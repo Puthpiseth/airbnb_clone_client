@@ -1,4 +1,3 @@
-import { PinDropSharp } from '@material-ui/icons';
 import React from 'react';
 import Card from './Card';
 import '../../assets/styleSheets/PlacesWrapper.scss';
