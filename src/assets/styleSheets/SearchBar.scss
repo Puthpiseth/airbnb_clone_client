@@ -8,7 +8,6 @@
         position : fixed;
         z-index : 5;
         width:100%;
-        // left:0;
         background: white;
         border : none;
         padding-top: 5%;
@@ -18,45 +17,51 @@
         width:78%;
         height : 40px;
         display: flex;
+
         .cancel-btn{
             border: none;
             background-color: transparent;
             font-weight: 800;
             font-size: 1rem;
-            // display: none;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     
     &-form{
         position :relative;
         width : 100%;
-        // top:20px;
         display:flex;
         justify-content: space-around;
         align-items: center;
-        // justify-content: space-between;
         border-radius: 25px;
         box-shadow: 0 0 8px black;
         border : 0.5px solid rgba(0, 0, 0, 0.432);
         overflow: hidden;
         height : 100%;
         transition: .4s;
+
         .search-icon{
             width: 25px;
             height : 25px;
             padding: 1%;
             transform: translateX(30%);
             border-radius: 50%;
-            // background-color: #ff0000;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         div{
-            // border: 3px solid blue;
             height : 100%;
             display:flex;
             flex:4;
             justify-content: center;
             padding:0;
+
             input:not(input[type='submit']){
                 width:90%;
                 height: 100%;
@@ -81,7 +86,6 @@
         display:flex;
         flex-direction: column;
         align-items: center;
-        
         .calendar{
             height:100vh; 
         }
@@ -89,10 +93,9 @@
 }
 
 .auto-complete-wrapper{
-    // border : 2px solid red;
     min-width : 90%;
-    // list-style : none;
     padding:0;
+
     li{
         margin-bottom: 1%;
         border-radius : 8px;
